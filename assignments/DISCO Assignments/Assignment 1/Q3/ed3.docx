@@ -1,0 +1,7 @@
+﻿We can directly eliminate the case where m > n as it is not possible to produce a 1 to 1 mapping in this case.
+
+Second, if any of the inputs are larger than n. Reject again.
+
+Third, maintain an auxiliary identifier array which keeps a check if the grade has already occurred. If the grade has already occurred. Reject.
+
+If the inputs haven't been rejected yet. Accept.

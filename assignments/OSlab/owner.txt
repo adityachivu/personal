@@ -1,0 +1,207 @@
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.5  0.0  29772  4508 ?        Ss   10:35   0:02 /sbin/init
+root         2  0.0  0.0      0     0 ?        S    10:35   0:00 [kthreadd]
+root         3  0.0  0.0      0     0 ?        S    10:35   0:00 [ksoftirqd/0]
+root         4  0.0  0.0      0     0 ?        S    10:35   0:00 [kworker/0:0]
+root         5  0.0  0.0      0     0 ?        S<   10:35   0:00 [kworker/0:0H]
+root         6  0.0  0.0      0     0 ?        S    10:35   0:00 [kworker/u8:0]
+root         7  0.1  0.0      0     0 ?        S    10:35   0:00 [rcu_sched]
+root         8  0.1  0.0      0     0 ?        S    10:35   0:00 [rcuos/0]
+root         9  0.1  0.0      0     0 ?        S    10:35   0:00 [rcuos/1]
+root        10  0.1  0.0      0     0 ?        S    10:35   0:00 [rcuos/2]
+root        11  0.0  0.0      0     0 ?        S    10:35   0:00 [rcuos/3]
+root        12  0.0  0.0      0     0 ?        S    10:35   0:00 [rcu_bh]
+root        13  0.0  0.0      0     0 ?        S    10:35   0:00 [rcuob/0]
+root        14  0.0  0.0      0     0 ?        S    10:35   0:00 [rcuob/1]
+root        15  0.0  0.0      0     0 ?        S    10:35   0:00 [rcuob/2]
+root        16  0.0  0.0      0     0 ?        S    10:35   0:00 [rcuob/3]
+root        17  0.4  0.0      0     0 ?        S    10:35   0:01 [migration/0]
+root        18  0.0  0.0      0     0 ?        S    10:35   0:00 [watchdog/0]
+root        19  0.0  0.0      0     0 ?        S    10:35   0:00 [watchdog/1]
+root        20  0.7  0.0      0     0 ?        S    10:35   0:03 [migration/1]
+root        21  0.0  0.0      0     0 ?        S    10:35   0:00 [ksoftirqd/1]
+root        22  0.1  0.0      0     0 ?        S    10:35   0:00 [kworker/1:0]
+root        23  0.0  0.0      0     0 ?        S<   10:35   0:00 [kworker/1:0H]
+root        24  0.0  0.0      0     0 ?        S    10:35   0:00 [watchdog/2]
+root        25  0.2  0.0      0     0 ?        R    10:35   0:01 [migration/2]
+root        26  0.0  0.0      0     0 ?        S    10:35   0:00 [ksoftirqd/2]
+root        28  0.0  0.0      0     0 ?        S<   10:35   0:00 [kworker/2:0H]
+root        29  0.0  0.0      0     0 ?        S    10:35   0:00 [watchdog/3]
+root        30  0.0  0.0      0     0 ?        S    10:35   0:00 [migration/3]
+root        31  0.0  0.0      0     0 ?        S    10:35   0:00 [ksoftirqd/3]
+root        33  0.0  0.0      0     0 ?        S<   10:35   0:00 [kworker/3:0H]
+root        34  0.0  0.0      0     0 ?        S<   10:35   0:00 [khelper]
+root        35  0.0  0.0      0     0 ?        S    10:35   0:00 [kdevtmpfs]
+root        36  0.0  0.0      0     0 ?        S<   10:35   0:00 [netns]
+root        37  0.0  0.0      0     0 ?        S    10:35   0:00 [khungtaskd]
+root        38  0.0  0.0      0     0 ?        S<   10:35   0:00 [writeback]
+root        39  0.0  0.0      0     0 ?        SN   10:35   0:00 [ksmd]
+root        40  0.0  0.0      0     0 ?        SN   10:35   0:00 [khugepaged]
+root        41  0.0  0.0      0     0 ?        S<   10:35   0:00 [crypto]
+root        42  0.0  0.0      0     0 ?        S<   10:35   0:00 [kintegrityd]
+root        43  0.0  0.0      0     0 ?        S<   10:35   0:00 [bioset]
+root        44  0.0  0.0      0     0 ?        S<   10:35   0:00 [kblockd]
+root        45  0.0  0.0      0     0 ?        S<   10:35   0:00 [ata_sff]
+root        46  0.0  0.0      0     0 ?        S    10:35   0:00 [khubd]
+root        47  0.0  0.0      0     0 ?        S<   10:35   0:00 [md]
+root        48  0.0  0.0      0     0 ?        S<   10:35   0:00 [devfreq_wq]
+root        52  0.0  0.0      0     0 ?        S    10:35   0:00 [kswapd0]
+root        53  0.0  0.0      0     0 ?        S    10:35   0:00 [fsnotify_mark]
+root        54  0.0  0.0      0     0 ?        S    10:35   0:00 [ecryptfs-kthrea]
+root        66  0.0  0.0      0     0 ?        S<   10:35   0:00 [kthrotld]
+root        67  0.0  0.0      0     0 ?        S<   10:35   0:00 [acpi_thermal_pm]
+root        68  0.0  0.0      0     0 ?        S    10:35   0:00 [kworker/3:1]
+root        69  0.1  0.0      0     0 ?        S    10:35   0:00 [kworker/2:1]
+root        70  0.0  0.0      0     0 ?        S<   10:35   0:00 [ipv6_addrconf]
+root        71  0.0  0.0      0     0 ?        S    10:35   0:00 [kworker/3:2]
+root        90  0.0  0.0      0     0 ?        S<   10:35   0:00 [deferwq]
+root        91  0.0  0.0      0     0 ?        S<   10:35   0:00 [charger_manager]
+root       141  0.0  0.0      0     0 ?        S<   10:35   0:00 [kpsmoused]
+root       145  0.0  0.0      0     0 ?        S    10:35   0:00 [kworker/1:2]
+root       146  0.0  0.0      0     0 ?        S    10:35   0:00 [scsi_eh_0]
+root       147  0.0  0.0      0     0 ?        S<   10:35   0:00 [scsi_tmf_0]
+root       148  0.0  0.0      0     0 ?        S    10:35   0:00 [scsi_eh_1]
+root       149  0.0  0.0      0     0 ?        S<   10:35   0:00 [scsi_tmf_1]
+root       150  0.0  0.0      0     0 ?        S    10:35   0:00 [scsi_eh_2]
+root       151  0.0  0.0      0     0 ?        S<   10:35   0:00 [scsi_tmf_2]
+root       152  0.0  0.0      0     0 ?        S    10:35   0:00 [scsi_eh_3]
+root       153  0.0  0.0      0     0 ?        S<   10:35   0:00 [scsi_tmf_3]
+root       156  0.1  0.0      0     0 ?        S    10:35   0:00 [kworker/u8:5]
+root       169  0.0  0.0      0     0 ?        S    10:35   0:00 [jbd2/sda5-8]
+root       170  0.0  0.0      0     0 ?        S<   10:35   0:00 [ext4-rsv-conver]
+root       285  0.0  0.0  23700  2584 ?        Ss   10:35   0:00 /sbin/cgmanager --sigstop -m name=systemd
+root       315  0.0  0.0  24088   200 ?        S    10:35   0:00 upstart-udev-bridge --daemon
+root       323  0.0  0.0  34932  3136 ?        Ss   10:35   0:00 /lib/systemd/systemd-udevd --daemon
+root       379  0.0  0.0      0     0 ?        S<   10:35   0:00 [cfg80211]
+root       385  0.0  0.0      0     0 ?        S<   10:35   0:00 [kworker/0:1H]
+root       397  0.0  0.0      0     0 ?        S<   10:35   0:00 [kworker/2:1H]
+root       405  0.0  0.0      0     0 ?        S<   10:35   0:00 [kworker/1:1H]
+root       407  0.0  0.0      0     0 ?        S<   10:35   0:00 [kworker/3:1H]
+root       425  0.0  0.0      0     0 ?        S<   10:35   0:00 [hd-audio0]
+root       429  0.0  0.0      0     0 ?        S<   10:35   0:00 [ttm_swap]
+root       431  0.0  0.0      0     0 ?        S<   10:35   0:00 [hd-audio1]
+root       456  0.0  0.0      0     0 ?        S<   10:35   0:00 [kworker/u9:0]
+root       457  0.0  0.0      0     0 ?        S<   10:35   0:00 [hci0]
+root       458  0.0  0.0      0     0 ?        S<   10:35   0:00 [hci0]
+root       461  0.0  0.0      0     0 ?        S<   10:35   0:00 [kvm-irqfd-clean]
+root       467  0.0  0.0      0     0 ?        S<   10:35   0:00 [kworker/u9:2]
+root       543  0.0  0.0  15288   240 ?        S    10:35   0:00 upstart-socket-bridge --daemon
+root       630  0.0  0.0      0     0 ?        S<   10:35   0:00 [radeon-crtc]
+root       631  0.0  0.0      0     0 ?        S<   10:35   0:00 [radeon-crtc]
+root       632  0.0  0.0      0     0 ?        S<   10:35   0:00 [radeon-crtc]
+root       633  0.0  0.0      0     0 ?        S<   10:35   0:00 [radeon-crtc]
+root       703  0.0  0.0      0     0 ?        S<   10:36   0:00 [kmemstick]
+root       704  0.0  0.0      0     0 ?        S    10:36   0:00 [rtsx_usb_ms_2]
+root       705  0.0  0.0      0     0 ?        S    10:36   0:00 [jbd2/sda6-8]
+root       706  0.0  0.0      0     0 ?        S<   10:36   0:00 [ext4-rsv-conver]
+root       722  0.0  0.0      0     0 ?        S    10:36   0:00 [kworker/0:2]
+message+   785  0.1  0.0  45316  4052 ?        Ss   10:36   0:00 dbus-daemon --system --fork
+root       801  0.0  0.0  15304  1900 ?        S    10:36   0:00 upstart-file-bridge --daemon
+syslog     810  0.0  0.0 255860  3048 ?        Ssl  10:36   0:00 rsyslogd
+root       826  0.0  0.1 328788  7848 ?        Ssl  10:36   0:00 /usr/sbin/ModemManager
+avahi      872  0.0  0.0  30284  2952 ?        S    10:36   0:00 avahi-daemon: running [adityalinux.local]
+avahi      877  0.0  0.0  30160   248 ?        S    10:36   0:00 avahi-daemon: chroot helper
+root       901  0.0  0.0  19536  3756 ?        Ss   10:36   0:00 /usr/sbin/bluetoothd
+root       906  0.0  0.0      0     0 ?        S<   10:36   0:00 [krfcommd]
+root      1034  0.0  0.0      0     0 ?        S<   10:36   0:00 [radeon-crtc]
+root      1035  0.0  0.0      0     0 ?        S<   10:36   0:00 [radeon-crtc]
+root      1036  0.0  0.0      0     0 ?        S<   10:36   0:00 [radeon-crtc]
+root      1037  0.0  0.0      0     0 ?        S<   10:36   0:00 [radeon-crtc]
+root      1038  0.0  0.0      0     0 ?        S<   10:36   0:00 [radeon-crtc]
+root      1039  0.0  0.0      0     0 ?        S<   10:36   0:00 [radeon-crtc]
+root      1060  0.1  0.2 339328 12628 ?        Ssl  10:36   0:00 NetworkManager
+root      1076  0.0  0.1 272648  9224 ?        Sl   10:36   0:00 /usr/lib/policykit-1/polkitd --no-debug
+root      1078  0.0  0.0  20024  2208 tty4     Ss+  10:36   0:00 /sbin/getty -8 38400 tty4
+root      1082  0.0  0.0  20024  2104 tty5     Ss+  10:36   0:00 /sbin/getty -8 38400 tty5
+root      1083  0.0  0.1 123740  6724 ?        Ssl  10:36   0:00 thermald --no-daemon --dbus-enable
+root      1090  0.0  0.0  20024  2212 tty2     Ss+  10:36   0:00 /sbin/getty -8 38400 tty2
+root      1091  0.0  0.0  20024  2108 tty3     Ss+  10:36   0:00 /sbin/getty -8 38400 tty3
+root      1095  0.0  0.0  20024  2176 tty6     Ss+  10:36   0:00 /sbin/getty -8 38400 tty6
+root      1119  0.0  0.0  19404  2172 ?        Ss   10:36   0:00 /usr/sbin/irqbalance
+root      1141  0.0  0.0  26028  2440 ?        Ss   10:36   0:00 cron
+whoopsie  1207  0.0  0.1 272724 10420 ?        Ssl  10:36   0:00 whoopsie -f
+root      1208  0.0  0.0  59576  5456 ?        Ss   10:36   0:00 /usr/sbin/sshd -D
+root      1228  0.0  0.1  76284  6388 ?        Ss   10:36   0:00 /usr/sbin/cups-browsed
+root      1272  0.0  0.0  36760  3136 ?        S    10:36   0:00 /lib/systemd/systemd-logind
+root      1284  0.0  0.0   4368  1672 ?        Ss   10:36   0:00 acpid -c /etc/acpi/events -s /var/run/acpid.socket
+mysql     1303  0.1  0.9 550256 54424 ?        Ssl  10:36   0:00 /usr/sbin/mysqld
+root      1320  0.1  0.0  30704  5476 ?        Ss   10:36   0:00 /sbin/wpa_supplicant -B -P /run/sendsigs.omit.d/wpasupplicant.pid -u -s -O /var/run/wpa_supplicant
+nobody    1416  0.0  0.0  40244  3388 ?        S    10:36   0:00 /usr/sbin/dnsmasq --conf-file --no-hosts --keep-in-foreground --bind-interfaces --except-interface=lo --clear-on-reload --strict-order --listen-address=10.42.0.1 --dhcp-range=10.42.0.10,10.42.0.100,60m --dhcp-option=option:router,10.42.0.1 --dhcp-lease-max=50 --pid-file=/var/run/nm-dnsmasq-wlan0.pid
+root      1504  0.0  0.0  12732   132 ?        Ss   10:36   0:00 /usr/sbin/uuidd
+kernoops  1559  0.0  0.0  35320  2652 ?        Ss   10:36   0:00 /usr/sbin/kerneloops
+root      1689  0.0  0.0      0     0 ?        S    10:36   0:00 [kworker/2:2]
+root      1730  0.0  0.0  20024  2112 tty1     Ss+  10:36   0:00 /sbin/getty -8 38400 tty1
+root      1753  0.0  0.1 351896  6064 ?        SLsl 10:36   0:00 lightdm
+root      1765  2.9  0.9 321320 53804 tty7     Ssl+ 10:36   0:11 /usr/bin/X -core :0 -seat seat0 -auth /var/run/lightdm/root/:0 -nolisten tcp vt7 -novtswitch
+root      1768  0.0  0.1 279012  6388 ?        Sl   10:36   0:00 /usr/lib/accountsservice/accounts-daemon
+root      1811  0.0  0.0      0     0 ?        S    10:36   0:00 [kauditd]
+root      1866  0.0  0.1 164268  6248 ?        Sl   10:36   0:00 lightdm --session-child 12 19
+rtkit     1946  0.0  0.0 168924  2500 ?        SNl  10:36   0:00 /usr/lib/rtkit/rtkit-daemon
+root      1976  0.0  0.1 254180  8944 ?        Sl   10:36   0:00 /usr/lib/upower/upowerd
+colord    2080  0.0  0.2 293872 11348 ?        Sl   10:36   0:00 /usr/lib/colord/colord
+aditya    2232  0.0  0.1 369436  9968 ?        SLl  10:36   0:00 /usr/bin/gnome-keyring-daemon --daemonize --login
+aditya    2246  0.0  0.0  36008  4132 ?        Ss   10:36   0:00 upstart --user
+root      2303  0.0  0.1  81740  6580 ?        Ss   10:36   0:00 /usr/sbin/cupsd -f
+lp        2318  0.0  0.0  63832  4148 ?        S    10:36   0:00 /usr/lib/cups/notifier/dbus dbus:// 
+aditya    2336  0.2  0.0  44724  3584 ?        Ss   10:36   0:00 dbus-daemon --fork --session --address=unix:abstract=/tmp/dbus-TzsJ5KqGJr
+aditya    2348  0.0  0.1  79112  8176 ?        Ss   10:36   0:00 /usr/lib/x86_64-linux-gnu/hud/window-stack-bridge
+aditya    2349  0.0  0.0  22328  2408 ?        Ss   10:36   0:00 upstart-event-bridge
+aditya    2368  0.0  0.0  30812   300 ?        S    10:36   0:00 upstart-file-bridge --daemon --user
+aditya    2370  0.0  0.0  22336   212 ?        S    10:36   0:00 upstart-dbus-bridge --daemon --system --user --bus-name system
+aditya    2372  0.0  0.0  22336   220 ?        S    10:36   0:00 upstart-dbus-bridge --daemon --session --user --bus-name session
+aditya    2384  0.4  0.6 448044 36396 ?        Ssl  10:36   0:01 /usr/lib/x86_64-linux-gnu/hud/hud-service
+aditya    2386  0.1  0.5 828400 30988 ?        Ssl  10:36   0:00 /usr/lib/unity-settings-daemon/unity-settings-daemon
+aditya    2391  0.0  0.1 337836  5660 ?        Ssl  10:36   0:00 /usr/lib/at-spi2-core/at-spi-bus-launcher --launch-immediately
+aditya    2392  0.0  0.3 585420 21516 ?        Ssl  10:36   0:00 gnome-session --session=ubuntu
+aditya    2397  0.0  0.0  43992  3588 ?        S    10:36   0:00 /bin/dbus-daemon --config-file=/etc/at-spi2/accessibility.conf --nofork --print-address 3
+aditya    2399  0.3  0.5 478208 30236 ?        Ssl  10:36   0:01 /usr/lib/unity/unity-panel-service
+aditya    2400  1.9  1.7 1186572 98328 ?       Ssl  10:36   0:06 compiz
+aditya    2402  0.0  0.1 123228  6096 ?        Sl   10:36   0:00 /usr/lib/at-spi2-core/at-spi2-registryd --use-gnome-session
+aditya    2411  0.0  0.1 196916  5696 ?        Sl   10:36   0:00 /usr/lib/gvfs/gvfsd
+aditya    2415  0.0  0.0 337216  5460 ?        Sl   10:36   0:00 /usr/lib/gvfs/gvfsd-fuse /run/user/1000/gvfs -f -o big_writes
+aditya    2436  0.1  0.4 525292 24836 ?        Sl   10:36   0:00 /usr/lib/x86_64-linux-gnu/bamf/bamfdaemon
+aditya    2446  0.0  0.0 178660  4852 ?        Sl   10:36   0:00 /usr/lib/dconf/dconf-service
+aditya    2449  0.0  0.0  22324  2544 ?        S    10:36   0:00 syndaemon -i 1.0 -t -K -R
+aditya    2453  0.0  0.1 446036 10108 ?        S<l  10:36   0:00 /usr/bin/pulseaudio --start --log-target=syslog
+aditya    2472  0.0  0.5 532856 31916 ?        Sl   10:36   0:00 nm-applet
+aditya    2475  0.0  0.3 343668 21764 ?        Sl   10:36   0:00 /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+aditya    2484  0.0  0.2 307124 11216 ?        Sl   10:36   0:00 /usr/lib/x86_64-linux-gnu/indicator-application/indicator-application-service
+aditya    2485  1.6  1.0 1444604 59256 ?       Sl   10:36   0:06 nautilus -n
+aditya    2496  0.0  0.1  56444  6144 ?        S    10:36   0:00 /usr/lib/x86_64-linux-gnu/gconf/gconfd-2
+aditya    2508  0.0  0.3 415276 18884 ?        Sl   10:36   0:00 /usr/lib/unity-settings-daemon/unity-fallback-mount-helper
+aditya    2523  0.0  0.1 364264 10036 ?        Sl   10:36   0:00 /usr/lib/gvfs/gvfs-udisks2-volume-monitor
+root      2526  0.0  0.1 363208  7860 ?        Sl   10:36   0:00 /usr/lib/udisks2/udisksd --no-debug
+aditya    2534  0.0  0.1 335720  5840 ?        Ssl  10:36   0:00 /usr/lib/x86_64-linux-gnu/indicator-messages/indicator-messages-service
+aditya    2535  0.0  0.1 263880  5672 ?        Ssl  10:36   0:00 /usr/lib/x86_64-linux-gnu/indicator-bluetooth/indicator-bluetooth-service
+aditya    2536  0.0  0.1 418500  6016 ?        Ssl  10:36   0:00 /usr/lib/x86_64-linux-gnu/indicator-power/indicator-power-service
+aditya    2539  0.0  0.3 1180216 20060 ?       Ssl  10:36   0:00 /usr/lib/x86_64-linux-gnu/indicator-datetime/indicator-datetime-service
+aditya    2540  0.0  0.4 562768 24012 ?        Ssl  10:36   0:00 /usr/lib/x86_64-linux-gnu/indicator-keyboard/indicator-keyboard-service --use-gtk
+aditya    2544  0.0  0.1 549820  9780 ?        Ssl  10:36   0:00 /usr/lib/x86_64-linux-gnu/indicator-sound/indicator-sound-service
+aditya    2549  0.0  0.4 461316 22908 ?        Ssl  10:36   0:00 /usr/lib/x86_64-linux-gnu/indicator-printers/indicator-printers-service
+aditya    2552  0.0  0.1 819756  8716 ?        Ssl  10:36   0:00 /usr/lib/x86_64-linux-gnu/indicator-session/indicator-session-service
+aditya    2580  0.0  0.1 298568  7688 ?        Sl   10:36   0:00 /usr/lib/gvfs/gvfs-afc-volume-monitor
+aditya    2617  0.0  0.3 528544 20928 ?        Sl   10:36   0:00 /usr/lib/evolution/evolution-source-registry
+aditya    2623  0.0  0.0 191816  5076 ?        Sl   10:36   0:00 /usr/lib/gvfs/gvfs-mtp-volume-monitor
+aditya    2627  0.0  0.1 203980  5692 ?        Sl   10:36   0:00 /usr/lib/gvfs/gvfs-gphoto2-volume-monitor
+aditya    2629  0.0  0.3 352344 20060 ?        Sl   10:36   0:00 /usr/lib/x86_64-linux-gnu/notify-osd
+aditya    2671  0.1  1.0 1198972 58040 ?       Sl   10:36   0:00 /usr/lib/evolution/evolution-calendar-factory
+aditya    2674  0.0  0.0 270648  4608 ?        Sl   10:36   0:00 /usr/lib/gvfs/gvfsd-burn --spawner :1.9 /org/gtk/gvfs/exec_spaw/0
+aditya    2680  0.0  0.1 351104  6436 ?        Sl   10:36   0:00 /usr/lib/gvfs/gvfsd-trash --spawner :1.9 /org/gtk/gvfs/exec_spaw/1
+aditya    2714  0.0  0.1 116324  5668 ?        Sl   10:36   0:00 /usr/lib/gvfs/gvfsd-metadata
+aditya    2718  0.0  0.3 461932 21076 ?        Sl   10:36   0:00 telepathy-indicator
+aditya    2725  0.0  0.2 314412 12032 ?        Sl   10:36   0:00 /usr/lib/telepathy/mission-control-5
+aditya    2752  0.1  0.3 497244 18128 ?        Sl   10:36   0:00 zeitgeist-datahub
+aditya    2758  0.0  0.1 340464  6648 ?        Sl   10:36   0:00 /usr/bin/zeitgeist-daemon
+aditya    2778  0.0  0.2 244152 15128 ?        Sl   10:36   0:00 /usr/lib/x86_64-linux-gnu/zeitgeist-fts
+aditya    2795  0.0  0.0  11552   720 ?        S    10:36   0:00 /bin/cat
+aditya    2821  0.0  0.4 510232 24244 ?        Sl   10:37   0:00 update-notifier
+root      2840  0.0  0.0  15644  2252 ?        S    10:37   0:00 /lib/systemd/systemd-hostnamed
+root      2861  0.4  0.0  13976  2880 ?        Ss   10:38   0:01 /sbin/mount.ntfs /dev/sda4 /media/aditya/E6E65F21E65EF0F3 -o rw,nodev,nosuid,uid=1000,gid=1000,dmask=0077,fmask=0177,uhelper=udisks2
+aditya    2866  0.0  0.1 369328  6620 ?        Sl   10:38   0:00 /usr/lib/x86_64-linux-gnu/deja-dup/deja-dup-monitor
+aditya    2886  3.1  1.5 1302176 87524 ?       Sl   10:40   0:04 evince /media/aditya/E6E65F21E65EF0F3/Users/VeriTrac01/Downloads/BITS 3-1/CS F372 - Operating Systems/Lab/OS-lab_ppt1.pdf
+aditya    2892  0.0  0.0 104652  4252 ?        Sl   10:40   0:00 /usr/lib/evince/evinced
+aditya    2915  0.9  0.5 549484 31428 ?        Sl   10:40   0:01 gnome-terminal
+aditya    2919  0.0  0.0  14824  1904 ?        S    10:40   0:00 gnome-pty-helper
+aditya    2920  0.0  0.1  27520  6236 pts/3    Ss   10:40   0:00 bash
+root      2978  0.1  0.0      0     0 ?        S    10:40   0:00 [kworker/u8:1]
+aditya    2986  0.0  0.0  22648  2612 pts/3    R+   10:42   0:00 ps aux

@@ -1,0 +1,17 @@
+﻿Pandey and Mishra like to travel a lot to holiday destinations. But they like to have full information of travels before they make a plan. Help them determine the number of paths to go from one place to another within a given number of journeys. V is the number of places and E is the number of connecting roads.
+Places are zero-indexed for convenience. The road network is a simple connected graph.
+
+INPUT
+Two space separated integers V and E followed by E lines with two space separated integers P1 and P2 representing a road connecting these two nodes. Again, place numbers are zero-indexed.
+Next line contains T and J, by t lines of two space separated integers. J is the number of journeys.
+
+2 <= V <= 20
+1 <= E <= 190
+0 <= P1 <= V
+0 <= P2 <= V
+1 <= t <= 20
+1 <= J <= 10
+
+OUTPUT
+For each query print the number of possible paths in a new line.
+

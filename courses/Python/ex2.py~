@@ -1,0 +1,7 @@
+#comment
+print "blah blah." #comment
+
+#comment
+#print "not executed."
+
+print "executed."

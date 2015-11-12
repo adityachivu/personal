@@ -1,0 +1,16 @@
+3
+5
+2
+big
+small
+2
+red
+blue
+2
+circle
+triangle
+big,red,circle,no
+small,red,triangle,no
+small,red,circle,yes
+big,blue,circle,no
+small,blue,circle,yes

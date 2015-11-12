@@ -1,0 +1,73 @@
+﻿Arth and Julius like playing with Hot Wheels model cars. There are a total of 32 cars that exist in the world. Julius and Arth want to collect them all, but since they are kids they find it hard to count. The cars that they individually have are represented as bit strings (subset of the 32 cars, 1 represents he has it and 0 represents he doesn't).
+
+Help them answer the following questions (in the form of a bit-string subset):
+
+1)What cars do Julius and Arth have together?
+2)What cars do Julius and Arth have in common?
+3)What cars does Julius not have?
+4)What cars does Arth have, that Julius doesn't?
+5)How many cars does Arth have?
+
+HINT: | is for Bitwise OR, & is for Bitwise AND, ~ is for Bitwise NOT, ^ is for Bitwise XOR. 
+
+INPUT:
+
+t is the number of test cases.
+A is a bit string that represents the subset of total cars that Arth has.
+J is a bit string that represents the subset of total cars that Julius has.
+
+0 <= t <= 100
+0 <= A <= 232 - 1
+0 <= J <= 232 - 1
+
+First line contains t, followed by t lines each containing A and J.
+
+OUTPUT:
+
+For each test case, there are five lines which contain answers to each of the questions.
+
+Example 1:
+INPUT:
+1
+5 3
+
+OUTPUT:
+7
+1
+4294967292
+4
+2
+
+Explanation:
+
+A = 5
+J = 3
+
+5 = 00...000101
+3 = 00...000011
+
+Together they have = 00...000111 = 7
+Common cars        = 00...000001 = 1
+Cars not present   = 11...111100 = 4294967292
+Cars A has that J doesn't      = 00...000100 = 4
+No. of cars A has  = 2
+
+
+
+
+
+
+
+
+Example 2:
+INPUT:
+1
+21 14
+
+OUTPUT:
+31
+4
+4294967281
+17
+3
+

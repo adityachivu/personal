@@ -1,0 +1,398 @@
+#ifndef GAME_BOARD_HPP
+#define GAME_BOARD_HPP
+//
+//
+//
+//  Board class provides board state read and write methods along with
+//  valid state checking.
+//
+//
+//
+//
+#include <iostream>
+#include <vector>
+#include <map>
+#include <cmath>
+#include <climits>
+#include <stdlib.h>
+#include "game_piece.hpp"
+
+#define BOARD_SIZE 8
+
+int clearScreen()
+{
+    int ex = system("clear");
+    cout << "*\t*\t*\t*\t*\t*\t*\t*\t*\t*\t*\t*\t*\t*\t*\t*\t*\t*\t*";
+    cout << "\n\n\n\t\t\t\t\t\t\tINTELLIGENT PAWN GAME\n\n\n";
+    cout << "*\t*\t*\t*\t*\t*\t*\t*\t*\t*\t*\t*\t*\t*\t*\t*\t*\t*\t*\n\n";
+    
+    return ex;
+
+}
+
+class Board
+{
+    public:
+    Board()
+    {
+	    //  Allocate board memory		
+		board.resize(BOARD_SIZE);
+		for (int i = 0; i < BOARD_SIZE; ++i)
+		{
+		    for (int j = 0; j < BOARD_SIZE; ++j)
+		    {
+		        board[i].push_back(NULL);
+			}
+		}
+	}
+	void initialize()
+	{
+		Piece* x;
+		turn = false; //white starta game.
+
+		//  INITIALIZE BOARD
+		
+		// White Pieces
+		for (int i = 0; i < BOARD_SIZE; ++i)
+		{
+			x = new Pawn(White);
+			board[0][i] = x;
+		}
+
+		// Empty spaces
+		for (int i = 1; i < 7; ++i)
+		{
+			for (int j = 0; j < BOARD_SIZE; ++j)
+			{
+				board[i][j] = NULL;
+			}
+		}		
+
+		// Black pieces
+		for (int i = 0; i < BOARD_SIZE; ++i)
+		{
+			x = new Pawn(Black);
+			board[7][i] = x;
+		}
+		
+
+	}
+	
+	Board(Board *b) 
+	{
+	
+		//  Allocate board memory
+		board.resize(BOARD_SIZE);
+		for (int i = 0; i < BOARD_SIZE; ++i) {
+			for (int j = 0; j < BOARD_SIZE; ++j) {
+				board[i].push_back(NULL);
+			}
+		}
+		
+		//  Initialize board to match argument board.
+		for (int i = 0; i < BOARD_SIZE; ++i) {
+			for (int j = 0; j < BOARD_SIZE; ++j) {
+				set_piece(i, j, b->get_piece(i, j));
+			}
+		}
+		
+		//  Set parent board.
+		set_parent(b);
+		
+		//  Set player move of current board.
+		turn = !b->get_player();
+			
+	}
+	void print()
+	{
+	    //  Column names.		
+		cout << "\t  a b c d e f g h" << endl;
+		for (int i = BOARD_SIZE - 1; i >= 0; --i)
+		{
+		
+			cout << "\t" << i + 1 << " ";
+			for (int j = 0; j < BOARD_SIZE; ++j)
+			{
+			
+				if (board[i][j] != NULL)
+				{
+					board[i][j]->print();
+				}
+				else
+				{
+					wcout << L"  ";
+				}
+			}
+			
+			//  Black Player turn
+			if (i == 6 && get_player())
+			{
+				cout << "	Black";
+			}
+			//  White Plyer turn
+			else if (i == 1 && !get_player())
+			{
+				cout << "	White";
+			}
+			cout << endl;
+		}
+		cout << endl;
+	}
+
+	Piece* get_piece(short int x, short int y)
+	{
+		return board[x][y];
+	}
+	
+	void set_piece(short int x, short int y, Piece* p)
+	{
+		board[x][y] = p;
+	}
+	
+	bool get_player()
+	{
+		return turn;
+	}
+	
+	vector<vector<Piece*> > get_board()
+	{
+		return board;
+	}
+	
+	Board* move_piece(short int src_x, short int src_y, short int dest_x, short int dest_y)
+	{
+		Board *new_board = new Board(this);
+
+		Piece* src = new_board->get_piece(src_x, src_y);		
+
+		new_board->set_piece(dest_x, dest_y, src);
+		new_board->set_piece(src_x, src_y, NULL);
+
+		return new_board;
+	}
+
+    Board* move(short int src_x, short int src_y, short int dest_x,short int dest_y)
+    {
+
+        Piece* src = get_piece(src_x, src_y);
+        Piece* dest = get_piece(dest_x, dest_y);
+
+	    if (src == NULL) 
+	    {
+		    cout << "\tSource state is not valid." << endl;
+		    return NULL;
+	    }
+
+	    if (src_x == dest_x && src_y == dest_y) 
+	    {
+		    cout << "\tSource is equal to destination." << endl;
+		    return NULL;
+	    }
+
+	    if (src->get_color() == White)
+	    {
+		    if ((src_x - dest_x) == -1) 
+		    {
+		        // Forward move.
+			    if (src_y == dest_y && dest == NULL) 
+			    {
+			        //  Normal move.
+				    return move_piece(src_x, src_y, dest_x, dest_y);
+			    } 
+			    else if (abs(src_y - dest_y) == 1 && dest != NULL && dest->get_color() == Black) 
+			    {
+			        //  Kill move.
+				    return move_piece(src_x, src_y, dest_x, dest_y);
+			    } 
+			    else
+			    {
+			        //  Impossible move.
+				    return NULL;
+			    }
+		    } 
+		    else
+		    {
+		        //  Impossible move.
+			    return NULL;
+		    }
+	    } 
+	    else 
+	    {
+	        // Black Piece
+		    if ((src_x - dest_x) == 1)
+		    {
+		        // Forward move.
+			    if (src_y == dest_y && dest == NULL)
+			    {
+			        //  Normal move.
+				    return move_piece(src_x, src_y, dest_x, dest_y);
+			    } 
+			    else if (abs(src_y - dest_y) == 1 && dest != NULL && dest->get_color() == White)
+			    {
+			        //  Kill move.
+				    return move_piece(src_x, src_y, dest_x, dest_y);
+			    } 
+			    else
+			    {
+			        //  Impossible move.
+				    return NULL;
+			    }
+		    } 
+		    else
+		    {
+		        //  Impossible move.
+			    return NULL;
+		    }
+	    } 
+
+        return NULL;
+    }
+
+	Board* get_parent() {
+		return parent;
+	}
+	
+	void set_parent(Board* parent) {
+		this->parent = parent;
+	}
+	
+	
+	/*  Variant 1.
+	int calc_utility(PieceColor color)
+	{
+		//int eval = 0;
+		int whitescore=0;
+		int blackscore=0;
+		for (int i = 0; i < BOARD_SIZE; ++i)
+		{ 
+			for (int j = 0; j < BOARD_SIZE; ++j)
+			{ 
+				if(get_piece(i,j)!=NULL)
+				{
+					if(get_piece(i,j)->get_color())
+					{
+						blackscore += (7-i);						
+						if(i==0)
+							blackscore=INT_MAX;						
+					}
+					if(!(get_piece(i,j)->get_color()))
+					{
+						whitescore += i;						
+						if(i==7)
+							whitescore=INT_MAX;						
+					}
+				}
+			}
+		}
+		//cout<<whitescore << " " <<blackscore<<endl;
+		return (whitescore-blackscore);
+	}//*/
+	
+	
+	/*  Variant 2.
+	int calc_utility(PieceColor color)
+	{
+		//int eval = 0;
+		int whitescore=0;
+		int blackscore=0;
+		for (int i = 0; i < BOARD_SIZE; ++i)
+		{ 
+			for (int j = 0; j < BOARD_SIZE; ++j)
+			{ 
+				if(get_piece(i,j)!=NULL)
+				{
+					if(get_piece(i,j)->get_color())
+					{
+						blackscore += pow(2, (7-i));
+						if(i==0)
+							blackscore=INT_MAX;						
+					}
+					if(!(get_piece(i,j)->get_color()))
+					{
+						whitescore += pow(2, i);						
+						if(i==7)
+							whitescore=INT_MAX;						
+					}
+				}
+			}
+		}
+		//cout<<whitescore << " " <<blackscore<<endl;
+		return (whitescore-blackscore);
+	}//*/
+	
+	//  Variant 3.
+	int calc_utility(PieceColor color)
+	{
+		//int eval = 0;
+		int score[] = {1,2,3,5,7,11,13,17};
+		int whitescore = 1;
+		int blackscore = 1;
+		for (int i = 0; i < BOARD_SIZE; ++i)
+		{ 
+			for (int j = 0; j < BOARD_SIZE; ++j)
+			{ 
+				if(get_piece(i,j)!=NULL)
+				{
+					if(get_piece(i,j)->get_color())
+					{
+						blackscore *= score[7-i];						
+						if(i==0)
+							blackscore=INT_MAX;						
+					}
+					if(!(get_piece(i,j)->get_color()))
+					{
+						whitescore *= score[i];						
+						if(i==7)
+							whitescore=INT_MAX;						
+					}
+				}
+			}
+		}
+		cout<<whitescore << " " <<blackscore<<endl;
+		return (whitescore-blackscore);
+	}//*/
+	
+	vector<Board*>* list_all_moves()
+	{
+		vector<Board*> *moves = new vector<Board*> ();
+		Board* temp = NULL;
+		PieceColor turn = get_player() ? Black : White;
+		int flag = 0;
+		for (int i = 0; i < BOARD_SIZE; ++i)
+		{
+			for (int j = 0; j < BOARD_SIZE; ++j)
+			{
+			    //  For every piece, check all places if possible move exists.
+				if (get_piece(i, j) != NULL && get_piece(i, j)->get_color()== turn)
+				{
+					for (int k = 0; k < BOARD_SIZE; ++k)
+					{
+						for (int l = 0; l < BOARD_SIZE; ++l)
+						{
+							if (i == k && j == l)
+							{
+								continue;
+							}
+							if ((temp = move(i, j, k, l)) != NULL)
+							{
+								moves->push_back(temp);
+								flag = 1;
+							}
+						}
+					}
+				}
+			}
+		}
+		if (flag == 0)
+			return NULL;
+		return moves;
+	}
+	
+    private:
+	    vector<vector<Piece*> > board;
+	    Board* parent;
+	    bool turn;
+	
+};
+
+#endif

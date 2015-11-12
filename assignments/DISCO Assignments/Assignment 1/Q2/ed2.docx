@@ -1,0 +1,1 @@
+﻿Create an array of size 100. Store the pre-image indexed by the image number. For example, if 27 maps to 72. array[72] = 27. Any query can be answered simply by accessing that element of the array.

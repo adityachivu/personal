@@ -1,0 +1,30 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+    int t = 0;
+    unsigned int A = 0, J = 0;
+    
+    
+    scanf("%d", &t);
+    
+    while(t--)
+    {
+        scanf("%u%u", &A, &J);
+        printf("%u\n%u\n%u\n%u\n", A|J, A&J, ~J, (A^J)&A);
+        
+        
+        int count = 0, i = 0;
+        for ( i = 0; i < 32; i++ )
+        {
+            if( A%2 == 1 )
+            {
+                count++;
+            }
+            A /= 2;
+        }
+        printf("%d\n", count);
+    }
+    return 0;
+}

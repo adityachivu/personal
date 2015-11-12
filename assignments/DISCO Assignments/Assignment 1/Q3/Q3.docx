@@ -1,0 +1,41 @@
+﻿Discrete Structures is a very difficult and competitive course. Therefore, the Course Instructors decided to give every student a unique positive integer grade. Since they are very busy, they want you to make sure the grades they assigned are valid. The number of students registered in the course is M and the number of grades assigned is N.
+
+INPUT:
+First line contains value of M and N.
+Next M lines contains the grade the corresponding student got.
+
+1 <= M <= 10000
+1 <= N <= 10000
+1 <= range_of_grades <= N
+
+OUTPUT:
+Print “VALID” if it is a valid assignment of grades. Else print “INVALID”
+
+Example 1:
+INPUT:
+5 5
+1
+2
+3
+4
+5
+ 
+OUTPUT:
+VALID
+
+Explanation 1: There are 5 unique grades allotted to five students.
+
+Example 2:
+5 5
+2
+3
+4
+5
+6
+
+OUTPUT:
+INVALID
+
+Explanation 2: 6 is not a valid grade as range of grade is 1 to 5.
+
+

@@ -1,0 +1,35 @@
+﻿We define “friends with” to be an equivalence relation, i.e. it is reflexive, symmetric and transitive. Given M friends and N friendship relations. Compute the number of friend groups. Even a lonely persons count for a group because they are friends with themselves.
+
+INPUT:
+First line contains integers M and N. Subsequent N lines contain friendship relations in for of “A B”, which means Person A is friends with Person B. When given a statement “A B” and “B C” it is to be assumed that “B A”, “C B”, “A C”, “C A” are all true as it is an equivalence relation. However, these statements may also be explicitly mentioned in the input. Person A, B and C constitute one group.
+
+1 <= M <= 26
+0 <= N <= 20
+'A' <= person_name <= 'A' + M
+
+OUTPUT:
+Output should the number of friend groups. (single integer)
+
+Example 1:
+INPUT:
+5 3
+A B
+C D
+E A
+
+OUTPUT:
+2
+
+Explanation 1: Person A, B, E belong to one group and Person C, D belong to another group.
+
+Example 2:
+6 3
+C E
+B F
+D F
+
+OUTPUT:
+3
+
+Explanation 2: Person A is a group. Person C, E are in a group and Person B, D, F are another group.
+

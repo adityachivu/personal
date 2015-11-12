@@ -1,0 +1,5 @@
+﻿The first three questions have trivial bitwise operations to be performed.
+
+One solution for the 4th question is to XOR of A and J. This results in a 1 if only one of the has a car. Subsequent bitwise AND provides the set of cars only A has which J does not.
+
+For the 5th question, we need to count the number of 1s in the bit string. Notice that dividing by two is the equivalent of performing a single right shift. If the number so generated is not divisible by 2. The LSB is 1. Incrementing count for every iteration where the number is not divisble by 2, for 32 iterations, will give us the number of 1s in the bitstring.

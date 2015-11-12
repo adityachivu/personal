@@ -1,0 +1,86 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int n, r, x, y, t, j;
+    scanf("%d", &n);
+    scanf("%d", &r);
+    
+    int adj[26][26] = {0};
+    int set[26][26] = {0};
+    int dis[26][26] = {0};
+    int ecc[26] = {0};
+    
+    //printf("%d\n", n);
+    for ( int i = 0; i < r; i++ )
+    {
+            scanf("%d", &x);
+            scanf("%d", &y);
+            adj[x][y] = 1;
+            adj[y][x] = 1;
+    }
+    
+    int temp[26][26] = {0};
+    int mul[26][26] = {0};
+    int sum = 0;
+    int iter = 1;
+    int rad = n, diam = 0;
+    
+    for ( int i = 0; i < n; i++ )
+    {
+        for ( int j = 0; j < n; j++ )
+        {
+            temp[i][j] = adj[i][j];
+            mul[i][j] = adj[i][i];
+            set[i][j] = adj[i][j];
+        }
+    }
+    
+    scanf("%d", &t);
+    scanf("%d", &j);
+       
+    for ( int iter = 1; iter < j; iter++ )
+    {
+        for ( int i = 0; i < n; i++ )
+        {
+            for ( int j = 0; j < n; j++ )
+            {
+                sum = 0;
+                for ( int k = 0; k < n; k++ )
+                {
+                    sum += temp[i][k] * adj[k][j];
+                }
+                mul[i][j] = sum;
+                
+            }
+        }
+        for ( int i = 0; i <= n; i++ )
+        {
+            for ( int j = 0; j < n; j++ )
+            {
+                temp[i][j] = mul[i][j];
+            }
+        }
+        for ( int i = 0; i < n; i++ )
+        {
+            for ( int j = 0; j < n; j++ )
+            {
+                printf("%d ", temp[i][j]);
+                //temp[i][j] = mul[i][j];
+            }
+            printf("\n");
+        }
+        printf("\n");
+    }
+    
+   
+    for ( int i = 0; i < t; i++ )
+    {
+        scanf("%d", &x);
+        scanf("%d", &y);
+        printf("%d\n", temp[x][y]);
+    } 
+    
+    return 0;
+}

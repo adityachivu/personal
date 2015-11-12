@@ -1,0 +1,35 @@
+﻿Given a bijection f: S → S, where S is the set of natural numbers upto 100. Find the inverse of the function.
+
+INPUT:
+
+100 consecutive lines containing space separated integers M and N. Followed by T test cases for identifying inverse.
+
+1 <= M <= 100
+1 <= N <= 100
+1 <= T <= 100
+
+OUTPUT:
+
+Pre-image of every number given its image.
+
+Example 1:
+
+(for case of S containing numbers 1 to 5)
+INPUT:
+
+2 3
+1 4
+5 2
+3 1
+4 5
+3  //number of test cases
+1
+4
+2
+
+OUTPUT:
+3
+1
+5
+
+Explanation: 3 is the preimage of 1. 1 is the preimage of 4 and so on.

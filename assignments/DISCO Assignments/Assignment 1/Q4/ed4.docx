@@ -1,0 +1,3 @@
+﻿Originally assume that all the friends are in separate groups. Since the friends will lie in distinct groups, let a unique number represent a group. Initialise your friend array friend[i] = I. As subsequent relations are given in the input. Unite these groups by replacing the unique number of the group the first person belongs to by the number of the group the second person belongs to. Now they all belong to same group. For example, if A belongs to a group numbered 1 and D belongs to a group numbered 4. Now a friendship A D is given. Replace all persons of group 4 as group 1.
+
+Finally, count the number of unique numbers in the friend array to get the number of groups. 
