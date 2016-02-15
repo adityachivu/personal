@@ -1,0 +1,124 @@
+#include <stdlib.h>
+#include <math.h>
+#include <GL/glut.h>
+#include <stdio.h>
+#define ALPHA 0.5f
+
+
+// XZ position of the camera
+float x=0.0f, z=5.0f;
+float windx = 0.00f, windz = 0.0f;
+float e = -0.01f;
+float accel = -0.01f;
+float size = 0;
+int freezetoggle = 1;
+int NUM_DROPS = 500;
+
+//  Structure containing all the attributes of a single rain drop particle.
+struct particle1
+{
+    float pxi, pyi, pzi;    //  Initial position vector.
+    float px, py, pz;       //  Current position vector.
+    float vi, v;            //  Initial and Current velocity.
+    float size;             //  Rain Drop Size
+    int T;                  //  Life cycle variable representing state.
+};
+
+typedef struct particle1 drop;
+drop d[50000];
+
+
+void initDrops()
+{
+    for ( int i = 0; i < NUM_DROPS; i++ )
+    {
+        d[i].pxi = (rand() % 100000 - 50000)/10000.0;
+        d[i].px = d[i].pxi;
+        d[i].pzi = (rand() % 60000 - 50000)/1000.0;
+        d[i].pz = d[i].pzi;
+        d[i].pyi = (rand() % 100000)/10000.0;
+        d[i].py = d[i].pyi;       
+        d[i].vi = (rand() % 50 - 50)/50.0;
+        d[i].v = d[i].vi;
+        d[i].size = size;
+    }
+}
+void drawDrop(drop d)
+{
+    glColor4f(.6, .6, .75, ALPHA);
+	glPushMatrix();    
+	glTranslatef(d.px + x, d.py, d.pz + z);
+	if ( !d.T )
+	{
+		glBegin(GL_TRIANGLES);
+		    glVertex3f(-windx, d.size, -windz);
+			glVertex3f(0.004, 0, 0);
+			glVertex3f(-0.004, 0, 0);
+		glEnd();
+	}
+	else
+	{
+		glBegin(GL_TRIANGLES);
+		    glVertex3f(0.0, d.size, 0.0);
+			glVertex3f(0.004, 0, 0);
+			glVertex3f(-0.004, 0, 0);
+		glEnd();
+	}
+	glPopMatrix();
+
+}
+
+void renderDrops()
+{
+    for ( int i = 0; i < NUM_DROPS; i++ )
+	{
+	    //  Temporarily pauses rain rendering if activated.
+    	if(freezetoggle)
+		{
+		    //  Determine stage of raindrop.
+       		if ( d[i].py <= 0 )
+       		{
+      			d[i].T ^= 1;
+       			if ( d[i].T )
+       			{
+       			    d[i].v *= e;
+       			    d[i].py = 0.01f;
+       			    d[i].size = 0.05f;
+       			    
+       			    //  draw Splash circle
+       			    for(int j=0;j<360;j+=40)
+					{
+						glPushMatrix();			
+						glTranslatef(d[i].px,0,d[i].pz);			
+						glRotatef(rand()%30-j,0,1,0);					
+						glBegin(GL_POINTS);
+							glVertex3f(0.05f, 0.002f, 0);
+						glEnd( );
+						glPopMatrix();
+					}
+       			}
+       			else
+       			{
+      			    d[i].px = d[i].pxi;
+       			    d[i].py = 5.0f;
+       			    d[i].pz = d[i].pzi;
+       			    d[i].v = d[i].vi;
+       			    d[i].size = size;      			    
+       			}
+   			}
+   			else
+       		{   
+       			if ( !d[i].T )
+       			{
+       		    	d[i].px -= windx;
+       		    	d[i].pz -= windz;
+       		    }	
+       		    d[i].py += d[i].v;
+       		    d[i].v += accel;
+   			}
+		}
+		
+		// render Single drop particle after required calculations.
+    	drawDrop(d[i]);
+   	}
+}

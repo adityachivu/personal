@@ -1,0 +1,37 @@
+#include <stdlib.h>
+#include <math.h>
+#include <GL/glut.h>
+#include <stdio.h>
+#include <fstream>
+#include <time.h>
+#include "drops.h"
+#include <stdio.h>
+
+int raintoggle = 0;
+
+
+void rainWithMusic()
+{
+    // interacts with python script to produce rain sound
+	// If minor note - starts rain
+    if (raintoggle)
+    {
+        //  File handling with Python Script.
+	    ofstream file;
+		file.open("rainsignal.txt",fstream::out);
+		file.close();
+		
+		//  Corresponding parameter changes.
+		dullness  = 0.25;    
+       	renderDrops();
+    }
+	else
+	{
+	    //  File handling with Python Script.
+		remove("rainsignal.txt");
+		remove("pianosignal.txt");
+		
+		//  Corresponding parameter changes.
+		dullness=0;	
+	}
+}

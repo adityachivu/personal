@@ -1,0 +1,470 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+struct stack
+{
+	char c;
+	struct stack *next;
+}dpda;
+
+char state = 'p';
+int index = 0;
+int r=0;
+int length;
+int index1, index2, index3, index4;
+int b;
+
+typedef struct stack st;
+st *head= NULL;
+
+void push(char v)
+{
+	st *temp;
+	temp= (st *)malloc(sizeof(st));
+	temp->c = v;
+	temp->next = head;
+	if(head==NULL)
+	{
+		head= temp;
+		return;
+	}
+	head= temp;
+	return;
+}
+
+char top()
+{
+	if(head==NULL)
+		return 'z';
+	return head->c;
+}
+
+char pop()
+{
+	char t;
+	if(head==NULL)
+	{
+		printf("Stack is empty");
+		return 'z';
+	}
+	t = head->c;
+	head= head->next;
+	return t;
+}
+
+void printConfig(char *inputString)
+{
+    int i;
+    for(i=index;i<length;i++)
+    {
+        printf("%c",inputString[i]);
+    }
+    if(index<=length-1)
+    {
+    for(i=0;i<index;i++)
+    {
+    printf(" ");
+    }
+    }
+    if(index>length-1)
+        printf("e");
+    printf("\t\t");
+}
+
+void printStack()
+{
+    st *temp=head;
+    if(head==NULL)
+    {
+       if(state=='u'|| state=='f')
+            printf("\t\t");
+       printf("e");
+    }
+    while(temp!=NULL)
+    {
+        printf("%c",temp->c);
+        temp=temp->next;
+    }
+    //printf("\n");
+    return;
+}
+void updateState(char *inputString)
+{
+    r=0;
+	switch(state)
+	{
+		case 'p':
+		{
+			state = 'q';
+			push('T');
+			break;
+		}
+		case 'q':
+		{
+			if(inputString[index]== 'n')
+			{
+				state='r';
+				index++;
+			}
+			else if(inputString[index]== '=')
+			{
+				state='t';
+				index++;
+			}
+			else if(inputString[index]=='$')
+			{
+				state='u';
+				index++;
+			}
+			else if(inputString[index]=='<')
+			{
+				state='v';
+				index++;
+			}
+			else if(inputString[index]=='>')
+			{
+				state='w';
+				index++;
+			}
+			else if(top()=='T')
+			{
+				pop();
+				push('A');
+				push('E');
+				push('F');
+			}
+			else if(top()=='F')
+			{
+				pop();
+				push('i');
+				push('(');
+				push('r');
+				push('o');
+				push('f');
+			}
+			else if(inputString[index]=='$')
+			{
+				state='u';
+				index++;
+			}
+			else if((inputString[index]=='f')&&(top()=='f'))
+			{
+				pop();
+				index++;
+			}
+			else if((inputString[index]=='o')&&(top()=='o'))
+			{
+				pop();
+				index++;
+			}
+			else if((inputString[index]=='r')&&(top()=='r'))
+			{
+				pop();
+				index++;
+			}
+			else if((inputString[index]=='(')&&(top()=='('))
+			{
+				pop();
+				index++;
+			}
+			else if((inputString[index]==')')&&(top()==')'))
+			{
+				pop();
+				index++;
+			}
+			else if((inputString[index]=='i')&&(top()=='i'))
+			{
+				pop();
+				index++;
+			}
+			else if((inputString[index]=='n')&&(top()=='n'))
+			{
+				pop();
+				index++;
+			}
+			else if((inputString[index]=='t')&&(top()=='t'))
+			{
+				pop();
+				index++;
+			}
+			else if((inputString[index]=='=')&&(top()=='='))
+			{
+				pop();
+				index++;
+			}
+			else if((inputString[index]=='0')&&(top()=='0'))
+			{
+				pop();
+				index++;
+			}
+			else if((inputString[index]==';')&&(top()==';'))
+			{
+				pop();
+				index++;
+			}
+			else if((inputString[index]=='+')&&(top()=='+'))
+			{
+				pop();
+				index++;
+			}
+			else if((inputString[index]=='<')&&(top()=='<'))
+			{
+				pop();
+				index++;
+			}
+			else if((inputString[index]=='>')&&(top()=='>'))
+			{
+				pop();
+				index++;
+			}
+			else if((inputString[index]=='1')&&(top()=='1'))
+			{
+				pop();
+				index++;
+			}
+			else if((inputString[index]=='2')&&(top()=='2'))
+			{
+				pop();
+				index++;
+			}
+			else if((inputString[index]=='3')&&(top()=='3'))
+			{
+				pop();
+				index++;
+			}
+			else if((inputString[index]=='4')&&(top()=='4'))
+			{
+				pop();
+				index++;
+			}
+			else if((inputString[index]=='5')&&(top()=='5'))
+			{
+				pop();
+				index++;
+			}
+			else if((inputString[index]=='6')&&(top()=='6'))
+			{
+				pop();
+				index++;
+			}
+			else if((inputString[index]=='7')&&(top()=='7'))
+			{
+				pop();
+				index++;
+			}
+			else if((inputString[index]=='8')&&(top()=='8'))
+			{
+				pop();
+				index++;
+			}
+			else if((inputString[index]=='9')&&(top()=='9'))
+			{
+				pop();
+				index++;
+			}
+			else if((inputString[index]=='-')&&(top()=='-'))
+			{
+				pop();
+				index++;
+			}
+			else if((inputString[index]==' ')&&(top()==' '))
+			{
+				pop();
+				index++;
+			}
+			else
+            {
+                printf("State q: error");
+                r = 1;
+                break;
+            }
+			break;
+
+		}
+		case 'r':
+		{
+			if(top()=='E')
+			{
+				pop();
+				push('i');
+				push(';');
+				//push('0');
+				//push('-');
+				for(b=index2-1;b>index1;b--)
+                {
+                    push(inputString[b]);
+                }
+				push('=');
+				push('i');
+				push('t');
+				push('n');
+			}
+			else if(top()=='n')
+			{
+				pop();
+				state='q';
+			}
+			else
+            {
+               printf("State r: error");
+               r = 1;
+               break;
+            }
+
+			break;
+		}
+		case 't':
+		{
+			if(top()=='E')
+			{
+				pop();
+				push('i');
+				push(';');
+				//push('0');
+				//push('-');
+				for(b=index2-1;b>index1;b--)
+                {
+                    push(inputString[b]);
+                }
+				push('=');
+			}
+			else if(top()=='=')
+			{
+				pop();
+				state='q';
+			}
+			else
+            {
+                printf("State t: error");
+                r=1;
+                break;
+            }
+			break;
+		}
+		case 'u':
+		{
+			if(top()== 'z')
+			{
+				state='f';
+
+			}
+			else
+            {
+				printf("State u: error");
+				r=1;
+				break;
+            }
+			break;
+		}
+		case 'v':
+		{
+			if(top()=='A')
+			{
+				pop();
+				push(')');
+				push('+');
+				push('+');
+				push('i');
+				push(';');
+				//push('0');
+				//push('2');
+				for(b=index4-1;b>index3;b--)
+                {
+                    push(inputString[b]);
+                }
+				push('<');
+			}
+			else if(top()=='<')
+			{
+				pop();
+				state='q';
+			}
+			else
+            {
+                printf("State v: error");
+                r=1;
+                break;
+            }
+			break;
+		}
+		case 'w':
+		{
+			if(top()=='A')
+			{
+				pop();
+				push(')');
+				push('-');
+				push('-');
+				push('i');
+				push(';');
+				//push('0');
+				//push('2');
+				for(b=index4-1;b>index3;b--)
+                {
+                    push(inputString[b]);
+                }
+				push('>');
+			}
+			else if(top()=='>')
+			{
+				pop();
+				state='q';
+			}
+			else
+            {
+                printf("State w: error");
+                r=1;
+                break;
+            }
+			break;
+		}
+	}
+	return;
+}
+
+
+int main(int argc, char **argv)
+{
+	char *inputS = argv[1];
+	printf("Input String is:");
+	printf("%s\n\n", inputS);
+	char inputString[strlen(inputS)+1];
+    strcpy(inputString,inputS);
+	strcat(inputString,"$");
+	length = strlen(inputString);
+
+	char *e;
+
+    e = strchr(inputString, '=');
+    index1 = (int)(e - inputString);
+    e = strchr(inputString, ';');
+    index2 = (int)(e - inputString);
+    if(strchr(inputString, '>'))
+        {e = strchr(inputString, '>');
+        index3 = (int)(e - inputString);}
+    else
+        {e = strchr(inputString, '<');
+        index3 = (int)(e - inputString);}
+    e = strrchr(inputString, ';');
+    index4 = (int)(e - inputString);
+
+	printf("State\tUnread Input\t\t\tStack\n");
+	printf("%c\t%s\t\te\n",state,inputString);
+	while((state!='f')&&(r==0))
+	{
+		updateState(inputString);
+		printf("%c\t",state);
+		printConfig(inputString);
+		printStack();
+		printf("\n");
+	}
+	printf("\n");
+	if((state=='f')&&(r==0))
+		printf("The string is accepted\n");
+	else
+		printf("The string is rejected\n");
+	return 0;
+}
+
+

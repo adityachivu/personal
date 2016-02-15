@@ -1,0 +1,35 @@
+<title> </title>
+<head><h1><center>points.h</center></h1></head>
+
+<body>
+<h2><b>Data Types</b></h2>
+<ul>
+	<li><b>Point:</b>
+		<p>
+			A point is represented as a <i>pair</i> of type <i>double</i>
+		</p>
+	<li>
+		<b>Point Set:</b>
+		<p>
+			A point set is represented is a vector of points.
+		</p>
+</ul>
+</br>
+<h2><b>Methods</b></h2>
+<ul>
+	<li><pre> void printPoint( point )</pre>
+		Prints the X and Y coordinate of a point.
+	<li><pre> double distBetween( point, point )</pre>
+		Calculates the Euclidean distance between given points.
+	<li><pre> double angleBetween( point, point, point )</pre>
+		Determines the smaller angle between two line segments using cosine rule.
+	<li><pre> point getInteriorPoint( pointset )</pre>
+		Returns a point to <i>inside</i> the given pointset.
+	<li><pre> point getExteriorPoint( pointset )</pre>
+		Returns a point outside the given pointset.
+	<li><pre> int signedArea( point, point, point )</pre>
+		Calculates the signed are contained by the given three points in that order.
+	<li><pre> bool checkRightTurn( point, point, point )</pre>
+		Determines the direction of rotation of given three points in that order.
+</ul>
+</body>

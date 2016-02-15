@@ -1,0 +1,61 @@
+<title> A walk along the road</title>
+<head><h1><center>Rain Simulation</center></h1></head>
+
+<body>
+<b>Objective:</b>
+<p>
+Our project involved the implementation of a particle system, containing a large number of particles, with newtonian physics.
+We combine this implementation with aesthetically changing the 'mood' of the scene, along with a twist.
+</p>
+
+<b>Design principles</b>
+<p>
+<b>Physics-based Simulation</b>
+</br>
+Every particle is represented as a structure with attributes, a position vector, velocity, acceleration, size and life cycle counter.
+</br>
+<ol>
+<li>
+Original position and velocity of each particle is randomized. The acceleration is kept constant for all gravity (as would be, intuitively). We considered the posibility of adding air resistance to the simulation, but the marginal increase in the realisticness was not worth the increased computations.
+<li>
+Each particle was modeled as a GL_TRIANGLE for simplified internal computations. The position vector corresponds to the "head" of the droplet. Standard Kinematic equations were used to determine the velocity and position of the particle, with empirically determined values for the same.
+<li>
+A <i>Splash</i> feature was implemented by using a damping coefficient which reverses the velocity to the upward direction. Further simulation proceeds by the aforementioned equations. The life cycle attribute of the particle structure was used for this feature.
+</br>
+<li> The implementation is also highly flexible. The number of particles in the total system can be modified. This allows for the effect of a light drizzle or a heavy rainstorm. A wind-like effect can also be dynamically added, causing the rain to fall in a diagonal fashion.
+</ol>
+</p>
+<p>
+Secondly, we additionally implement movement ability for the camera - so you can move forwards, backwards, strafe left and right; much like you would in a First Person shooter. Oh, you can move upwards and downwards too, if that was necessary.
+</p>
+
+<b>Details of Scene</b>
+<ol>
+<li><b>Road : </b>Global variables tracking the camera position and direction vector are maintained. Simple vector math is used to update the position based on the current direction. Forward, backward and sideways movement is restricted to a 2D plane. Height of this plane can be varied.</li>
+<li><b>Buildings : </b>We allow the camera to pan 360&deg; (both yaw and pitch), roll from -45&deg; to 45&deg; (although it doesn't make a lot of sense here) and zoom in and out varying the field of view angle from 1&deg; to 45&deg;. All this is done by varying global angles representing rotation around the axes. Zooming is implemented by changing the field of view angle in the perspective setup function</li>
+
+</ol>
+</br>
+<b>Details of <i>Extended features</i></b>
+<ol>
+<li><b>Piano: </b>We use the virtual piano that we had created along with our first assignment, as a trigger for the rain. But, not all notes trigger the rain. The white keys, or the <i>major </i>notes are generally associated with a happy mood, while the black keys, or the  <i>minor </i>notes are associated with a more solemn, dull mood. We manipulate this emotional quotient to trigger the change in scene. 
+<li><b>Sound Effects: </b>Once the rain has been triggered, a realistic rain noise is simulated, by playing a track in the background, using the default music player and a python script.
+</ol>
+<a href="Scene.html">Have a look at the finished scene here.</a>
+
+<b><h2>Features of Interest</h2></b>
+<p>These showcase the camera functionality on a mock scene.</p>
+<p>
+<img src="Shot1.png" width="600" align="left"></img>
+<img src="Shot2.png" width="600" align="right"></img>
+</p>
+<br></br>
+<p style="clear:both;"><left>Here's showing off the zoom functionality.</left></p>
+<img src="Zoom1.png" width="600" align="left"></img>
+<img src="Zoom2.png" width="600" align="right"></img>
+<br></br>
+<p style="clear:both;">Here's showing off the roll functionality. And a panned establishment shot</p>
+<img src="Roll.png" width="600" align="left"></img>
+<img src="LongShot.png" width="600" align="right"></img>
+</body>
+

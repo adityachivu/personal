@@ -1,0 +1,7 @@
+Logistic Regression:
+Train Accuracy: 59.641988
+Test Accuracy: 62.782501
+
+Neural Networks (15 hidden Units):
+Train Accuracy: 59.536667
+Test Accuracy: 61.758606

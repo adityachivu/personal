@@ -1,0 +1,24 @@
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string>
+
+using namespace std;
+
+int main(int argc, char* argv[])
+{
+    if ( argc <= 1 )
+    {
+        printf("\nPlease provide input!\n");
+        return 0;
+    }
+    
+    string ip;
+    for ( int i = 1; i < argc; i++ )
+    {
+        ip = ip + " " + argv[i];
+    }
+    
+    cout << ip;
+    return 0;
+}

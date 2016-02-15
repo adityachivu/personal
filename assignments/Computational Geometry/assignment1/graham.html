@@ -1,0 +1,11 @@
+<title> Convex Hull </title>
+<head><h1><center>Graham Scan</center></h1></head>
+
+<body>
+<h2><b>Implementation</b></h2>
+<p>
+	In our implementation of Graham Scan algorithm. We first determine an interior point of the given set. Then we calculate the angle formed by every point in the set with respect to the positive X-axis and sort by angle. For every three consecutive points that form a left turn. The points are added to a point stack. If the points form a left turn, then the previous point is popped and revalutaed with the latest point from the unseen pointset. This is repeated till all points in the sorted pointset are traversed once and there a re no more changes to be made.
+</p>
+
+
+</body>

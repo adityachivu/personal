@@ -1,0 +1,603 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+struct node
+{
+    char c;
+    struct node *next;
+}*top,*top1,*temp;
+
+int index1, index2, index3, index4;
+int q;
+
+char topelement();
+void push(char data);
+char pop();
+void empty();
+void display();
+void stack_count();
+void create();
+void printString(char *String);
+void changeState(char *String);
+
+
+int count = 0;
+
+int t=0; //to denote error
+int length;
+int curr_index;
+char state= 'p';
+
+
+/* Create empty stack */
+void create()
+{
+    top = NULL;
+}
+
+/* Count stack elements */
+void stack_count()
+{
+    printf("\n No. of elements in stack : %d", count);
+}
+
+/* Push data into stack */
+void push(char data)
+{
+    if (top == NULL)
+    {
+        top =(struct node *)malloc(1*sizeof(struct node));
+        top->next = NULL;
+        top->c= data;
+    }
+    else
+    {
+        temp =(struct node *)malloc(1*sizeof(struct node));
+        temp->next = top;
+        temp->c = data;
+        top = temp;
+    }
+    count++;
+}
+
+/* Display stack elements */
+void display()
+{
+    top1 = top;
+
+    if (top1 == NULL)
+    {
+        printf("e");
+        return;
+    }
+
+    while (top1 != NULL)
+    {
+        printf("%c", top1->c);
+        top1 = top1->next;
+    }
+	return;
+ }
+
+/* Pop Operation on stack */
+char pop()
+{
+    top1 = top;
+    char temp;
+
+    if (top1 == NULL)
+    {
+
+        return 'z';
+    }
+    else
+        top1 = top1->next;
+        temp-top->c;
+    //printf("\n Popped value : %d", temp);
+    free(top);
+    top = top1;
+    count--;
+    return temp;
+}
+
+/* Return top element */
+char topelement()
+{
+    if(top==NULL)
+    	return 'z';
+    return(top->c);
+}
+
+/* Check if stack is empty or not */
+void empty()
+{
+    if (top == NULL)
+        printf("\n Stack is empty");
+    else
+        printf("\n Stack is not empty with %d elements", count);
+}
+
+void printString(char *String)
+{
+    int i;
+    if(curr_index<=length-1)
+    {
+    for(i=0;i<curr_index;i++)
+    {
+    printf(" ");
+    }
+    }
+
+    for(i=curr_index;i<length;i++)
+    {
+        printf("%c",String[i]);
+    }
+    if(curr_index>length-1)
+    {
+    	for(i=0;i<curr_index-1;i++)
+    	{
+    	printf(" ");
+    	}
+        printf("e");
+    }
+    printf("\t\t");
+}
+
+void changeState(char *String)
+{
+    t=0;
+	switch(state)
+	{
+		case 'p':
+		{
+			state = 'a';
+			push('S');
+			break;
+		}
+		case 'a':
+		{
+			if(String[curr_index]== '<')
+				{
+					state='s';
+					curr_index++;
+				}
+            else if(String[curr_index]== '>')
+				{
+					state='t';
+					curr_index++;
+
+				}
+            else if(String[curr_index]== 'n')
+				{
+					state='n';
+
+					curr_index++;
+
+				}
+            else if(String[curr_index]== '=')
+				{
+					state='m';
+
+					curr_index++;
+
+				}
+            else if(String[curr_index]== '+')
+				{
+					state='u';
+					curr_index++;
+
+				}
+            else if(String[curr_index]== '-')
+				{
+					state='v';
+					curr_index++;
+
+				}
+			else if(String[curr_index]=='$')
+			{
+				state='z';
+				curr_index++;
+			}
+
+            else if(topelement()=='S')
+			{
+				pop();
+				push('Z');
+				push('Y');
+				push('X');
+				push('F');
+
+			}
+			else if(topelement()=='f'&&String[curr_index]== 'f')
+			{
+				pop();
+				curr_index++;
+			}
+			else if(topelement()=='o'&&String[curr_index]== 'o')
+			{
+				pop();
+				curr_index++;
+			}
+			else if(topelement()=='r'&&String[curr_index]== 'r')
+			{
+				pop();
+				curr_index++;
+			}
+			else if(topelement()=='('&&String[curr_index]== '(')
+			{
+				pop();
+				curr_index++;
+			}
+			else if(topelement()=='i'&&String[curr_index]== 'i')
+			{
+				pop();
+				curr_index++;
+			}
+			else if((String[curr_index]==')')&&(topelement()==')'))
+			{
+				pop();
+				curr_index++;
+			}
+			else if((String[curr_index]=='n')&&(topelement()=='n'))
+			{
+				pop();
+				curr_index++;
+			}
+			else if((String[curr_index]=='t')&&(topelement()=='t'))
+			{
+				pop();
+				curr_index++;
+			}
+			else if((String[curr_index]=='=')&&(topelement()=='='))
+			{
+				pop();
+				curr_index++;
+			}
+			else if((String[curr_index]=='0')&&(topelement()=='0'))
+			{
+				pop();
+				curr_index++;
+			}
+			else if((String[curr_index]==';')&&(topelement()==';'))
+			{
+				pop();
+				curr_index++;
+			}
+			else if((String[curr_index]=='+')&&(topelement()=='+'))
+			{
+				pop();
+				curr_index++;
+			}
+			else if((String[curr_index]=='<')&&(topelement()=='<'))
+			{
+				pop();
+				curr_index++;
+			}
+			else if((String[curr_index]=='>')&&(topelement()=='>'))
+			{
+				pop();
+				curr_index++;
+			}
+			else if((String[curr_index]=='1')&&(topelement()=='1'))
+			{
+				pop();
+				curr_index++;
+			}
+			else if((String[curr_index]=='2')&&(topelement()=='2'))
+			{
+				pop();
+				curr_index++;
+			}
+			else if((String[curr_index]=='3')&&(topelement()=='3'))
+			{
+				pop();
+				curr_index++;
+			}
+			else if((String[curr_index]=='4')&&(topelement()=='4'))
+			{
+				pop();
+				curr_index++;
+			}
+			else if((String[curr_index]=='5')&&(topelement()=='5'))
+			{
+				pop();
+				curr_index++;
+			}
+			else if((String[curr_index]=='6')&&(topelement()=='6'))
+			{
+				pop();
+				curr_index++;
+			}
+			else if((String[curr_index]=='7')&&(topelement()=='7'))
+			{
+				pop();
+				curr_index++;
+			}
+			else if((String[curr_index]=='8')&&(topelement()=='8'))
+			{
+				pop();
+				curr_index++;
+			}
+			else if((String[curr_index]=='9')&&(topelement()=='9'))
+			{
+				pop();
+				curr_index++;
+			}
+			else if((String[curr_index]=='-')&&(topelement()=='-'))
+			{
+				pop();
+				curr_index++;
+			}
+			else if(topelement()=='F')
+			{
+				pop();
+				push('i');
+				push('(');
+				push('r');
+				push('o');
+				push('f');
+
+
+			}
+			else
+           		 {
+               			//printf("mError");
+              			 t = 1;
+              			 break;
+           		 }
+
+
+			break;
+
+		}
+
+		case 'm':
+		{
+			if(topelement()=='X')
+			{
+				pop();
+				push('i');
+				push(';');
+				for(q=index2-1;q>index1;q--)
+                {
+                    push(String[q]);
+                }
+
+				push('=');
+
+			}
+			else if(topelement()=='=')
+			{
+				pop();
+				state='a';
+			}
+
+			else
+           		 {
+               			//printf("mError");
+              			 t = 1;
+              			 break;
+           		 }
+
+			break;
+		}
+		case 'n':
+		{
+			if(topelement()=='X')
+			{
+				pop();
+				push('i');
+				push(';');
+				for(q=index2-1;q>index1;q--)
+                {
+                    push(String[q]);
+                }
+				push('=');
+				push('i');
+				push('t');
+				push('n');
+
+			}
+			else if(topelement()=='n')
+			{
+				pop();
+
+				state='a';
+
+			}
+			else
+           		 {
+                		//printf("nError");
+                		t=1;
+                		break;
+           		 }
+			break;
+		}
+		case 's':
+		{
+			if(topelement()=='Y')
+			{
+				pop();
+				push('i');
+				push(';');
+				for(q=index4-1;q>index3;q--)
+                {
+                    push(String[q]);
+                }
+				push('<');
+
+
+			}
+			else if(topelement()=='<')
+			{
+				pop();
+				state='a';
+
+			}
+			else
+           		 {
+                		//printf("nError");
+                		t=1;
+                		break;
+           		 }
+			break;
+
+		}
+		case 't':
+		{
+			if(topelement()=='Y')
+			{
+				pop();
+				push('i');
+				push(';');
+				for(q=index4-1;q>index3;q--)
+                {
+                    push(String[q]);
+                }
+				push('>');
+
+
+			}
+			else if(topelement()=='>')
+			{
+				pop();
+				state='a';
+
+			}
+			else
+           		 {
+                		//printf("nError");
+                		t=1;
+                		break;
+           		 }
+			break;
+
+		}
+		case 'u':
+		{
+			if(topelement()=='Z')
+			{
+				pop();
+				push(')');
+				push('+');
+				push('+');
+
+
+			}
+			else if(topelement()=='+')
+			{
+
+				pop();
+				state='a';
+
+
+			}
+			else
+           		 {
+                		//printf("nError");
+                		t=1;
+                		break;
+           		 }
+			break;
+
+		}
+		case 'v':
+		{
+			if(topelement()=='Z')
+			{
+				pop();
+				push(')');
+				push('-');
+				push('-');
+
+
+
+
+			}
+			else if(topelement()=='-')
+			{
+				pop();
+
+				state='a';
+
+			}
+			else
+           		 {
+                		//printf("nError");
+                		t=1;
+                		break;
+           		 }
+			break;
+
+		}
+		case 'z':
+		{
+			if(topelement()== 'z')
+			{
+				state='f';
+
+			}
+			else
+           		 {
+				//printf("oError");
+				t=1;
+				break;
+            		}
+
+		}
+
+	}
+	return;
+}
+
+int main(int argc, char *argv[])
+{
+    char *input= argv[1];
+	printf("The string to check is : %s\n\n\n", input);
+
+	int size = strlen(input)+1;
+	char String[size];
+	strcpy(String,input);
+	strcat(String,"$");
+	length=strlen(String);
+
+    char *e;
+
+    e = strchr(input, '=');
+    index1 = (int)(e - input);
+    e = strchr(input, ';');
+    index2 = (int)(e - input);
+    if(strchr(input, '>'))
+        {e = strchr(input, '>');
+        index3 = (int)(e - input);}
+    else
+        {e = strchr(input, '<');
+        index3 = (int)(e - input);}
+    e = strrchr(input, ';');
+    index4 = (int)(e - input);
+
+    //printf("%d%d%d%d\n", index1, index2, index3, index4);
+
+
+	create();
+
+	printf("STATE\t\tUNREAD INPUT\t\tSTACK CONTENTS\n");
+	printf("%c\t%s\t\t-\n",state,String);
+
+	while((state!='f')&&(t==0))
+	{
+		changeState(String);
+		printf("%c\t",state);
+		printString(String);
+		display();
+		printf("\n");
+	}
+	if((state=='f')&&(t==0))
+		printf("\nThe string is accepted!\n");
+	else
+		printf("\nThe string is rejected!\n");
+	return 0;
+
+
+

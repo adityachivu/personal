@@ -1,0 +1,55 @@
+<title> Convex Hull</title>
+<head><h1><center>Convex Hull Algorithms</center></h1></head>
+
+<body>
+<h2><b>Objective:</b></h2>
+<p>
+In this assignment we implement three different Convex Hull algorithms, namely:
+<ol>
+	<li>
+		<a href = "graham.html">Graham Scan</a> Algorithm
+	<li>
+		<a href = "jarvis.html">Jarvis March</a> Algorithm
+	<li>
+		<a href = "andrew.html">Andrew</a> Algorithm
+</ol>
+</br>
+We intend to compare the performance and accuracy of these algorithms for various test cases and also analyse behaviour of the algorithms in degenerate cases. We then present our rationale for determining the algorithm that outperforms the other two.
+</p>
+
+<h2><b>Design Principles</b></h2>
+<p>
+Here we take a look at a breakdown of our code and explain our approach.
+</p>
+<ul>
+	<li><b>Driver Program</b></br>
+		<p>
+			Driver program takes as input from STDIN:</br>
+			Number of points, N.</br>
+			X and Y coordinate of N points.</br>
+			The points are stored as a <i>pointset</i>. ConvexHull API call returns a subset of these points present in the ConvexHull in cyclic order (unique to each algorithm).
+		</p>
+	<li><b>algorithm.h</b></br>
+		<p>
+			algorithm.h contains the implementation of the aforementioned three algorithms. The corresponding methods can be invoke by calling:</br>
+			<b><pre>pointset convexHullGrahamScan( pointset )</pre></b>
+			<b><pre>pointset convexHullJarvisMarch( pointset )</pre></b>
+			<b><pre>pointset convexHullAndrew( pointset )</pre></b>
+			All three methods take one argument, <i>pointset</i> as read by the Driver Program and return a subset of those points.
+		</p>
+	<li><b>points.h</b></br>
+		<p>
+			<a href = "points.html">points.h</a> provides an abstract representation of a point and a set of points. It also contains methods for providing operations that are required by Convex Hull algorithms.
+		</p>
+</ul>
+</br>
+<h2><b> Analysis on Test Cases </b></h2>
+<p>
+
+</p>
+<h2><b>And the Winner!</b></h2>
+<p>
+
+</p>
+</body>
+

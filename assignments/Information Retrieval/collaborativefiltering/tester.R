@@ -1,0 +1,15 @@
+data("Jester5k")
+library(recommenderlab)
+recommenderRegistry$get_entries(dataType = "realRatingMatrix")
+r1 <- Recommender(Jester5k[1:4000], method = "IBCF")
+r2 <- Recommender(Jester5k[1:4000], method = "PCA")
+r3 <- Recommender(Jester5k[1:4000], method = "RANDOM")
+r4 <- Recommender(Jester5k[1:4000], method = "SVD")
+r5 <- Recommender(Jester5k[1:4000], method = "UBCF")
+
+recom1 <- predict(r1, Jester5k[4001:4002], n=5)
+recom2 <- predict(r2, Jester5k[4001:4002], n=5)
+recom3 <- predict(r3, Jester5k[4001:4002], n=5)
+recom4 <- predict(r4, Jester5k[4001:4002], n=5)
+recom5 <- predict(r5, Jester5k[4001:4002], n=5)
+
