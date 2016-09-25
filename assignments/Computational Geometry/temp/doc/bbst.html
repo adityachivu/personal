@@ -1,0 +1,86 @@
+<title> 1 D Range Query using Balanced Binary Search Tree</title>
+<head><h1><center>Implementation of 1 D Range Query Algorithm</center></h1></head>
+
+<body>
+<h2><b>Objective:</b></h2>
+<p>
+In this assignment we implemented 1 D Range Query using Balanced Binary Search Tree ( Red Black Tree) as a header file <b>bbst.h</b>. It includes two classes, namely:
+<ol>
+	<li>
+		BSSTNode
+	<li>
+		BSST
+</ol>
+</br>
+We intend to analyse the performance and accuracy of the 1D range Query algorithm for various test cases and also analyse behaviour of the code in degenerate cases. The time taken to build the binary search tree is O(nlogn) and it requires O(n) storage. Overall, query time is O(k + nlogn) where k is the number of reported points in the range.
+</p>
+
+<h2><b>Design Principles</b></h2>
+<p>
+Here we take a look at a breakdown of our code and explain our approach.
+</p>
+<ul>
+	<li><b>Driver Program</b></br>
+		<p>
+			Driver program takes input as random numbers from a Generator.cpp file which generates numbers( acepts float values also) in some range according to some distribution specified in it. We also take various parameters like n (number of values), LowerRange and UpperRangeValue of the query at STDIN:</br>
+			Number of points, n.</br>
+			xLower and xUpper values for the query.</br>
+			The points are stored in a <i>BBST</i>.
+		</p>
+	<li><b>BBST.h</b></br>
+		<p>
+			algorithm.h contains the implementation of the aforementioned 2 classes, namely: BBST and BBSTNode. The corresponding methods can be invoke by calling:</br>
+			<b><pre>void insert(float data)</pre></b>
+			<b><pre>BBSTNode* findSplitNode(float v1, float v2)</pre></b>
+			<b><pre>bool search(float v)</pre></b>
+			<b><pre>void preorder()</pre></b>
+			<b><pre>void followLower( float v1, BBSTNode* k, vector< float >& v)</pre></b>
+			<b><pre>void followUpper( float v2, BBSTNode* k, vector< float >& v)</pre></b>
+		</p>
+</ul>
+</br>
+<h2><b> Analysis on Test Cases: </b></h2>
+<p>
+<ol>
+	<li><b>n = 100, alpha = 30, xLower = -45.67, xUpper = 78.34 </b></br>
+		<p>
+			<img src="1.png" align = left>
+			In this case, the test case is not too large and includes floating point dataset which follows normal distribution. It gives accurate results quickly.
+		</p>
+	<li><b>n = 10000, alpha = 3000, xLower = -78.899, xUpper = 45.666</b></br>
+		<p>
+			<img src="2.png" alt="Normal Distribution 2" style="width:1852px;height:197px;">
+			In this case, the test case is large and includes floating point dataset which again follows normal distribution. It gives accurate results but in time greater than the first case.
+		</p>
+	<li><b>n = 100, alpha = 30, xLower = xUpper = 45.677</b></br>
+		<p>
+			<img src="3.png" alt="Normal Distribution 1" style="width:1856px;height:287px;">
+			In this case, the test case is small and follows normal distribution but the xUpper = xLower value and thus the query is reduced to a search in BBST. The above screenshot gives a negative result as the numbers generated don't include the xLower value.
+		</p>
+	<li><b>n = 100, alpha = 30 , xLower = -99.3456, xUpper = -98.34727</b></br>
+		<p>
+			<img src="4.png" alt="Normal Distribution 1" style="width:1854px;height:344px;">
+			In this case, the test case is small and follows normal distribution but the xUpper - xLower value is very small. The above screenshot gives a negative result as the numbers generated don't include any value between the specified range.
+		</p>
+	<li><b>n = 100, xLower = -45.67, xUpper = 78.34 </b></br>
+		<p>
+			<img src="5.png" alt="Uniform Distribution 1" style="width:1855px;height:404px;">
+			In this case, the test case is small and follows uniform distribution with a large xUpper - xLower value. It gives accurate results quickly.
+		</p>
+	<li><b>n = 100000, xLower = -78.899, xUpper = 45.666</b></br>
+		<p>
+			<img src="6.png" alt="Uniform Distribution 2" style="width:1855px;height:174px;">
+			In this case, the test case is very large and follows normal distribution but the xUpper - xLower value is very small. It gives accurate results but in time greater than the previous case because of the logn factor.
+		</p>
+	<li><b>n = 100, alpha = 30 , xLower = -99.2352, xUpper = -96.325</b></br>
+		<p>
+			<img src="7.png" alt="Normal Distribution 1" style="width:1853px;height:375px;">
+			In this case, the test case is small and follows normal distribution but the xUpper - xLower value is very small. The above screenshot gives a positive result as the numbers generated include some values between the specified range.
+		</p>
+	
+</ol>
+</br>
+
+</p>
+</body>
+

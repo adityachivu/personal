@@ -1,0 +1,418 @@
+\hypertarget{points_8h}{}\section{points.\+h File Reference}
+\label{points_8h}\index{points.\+h@{points.\+h}}
+
+
+Provides an abstract representation of a point and a set of points. It provides all the functions to manipulate points to perform various operations required by the Convex hull algorithms.  
+
+
+{\ttfamily \#include $<$vector$>$}\\*
+{\ttfamily \#include $<$stack$>$}\\*
+{\ttfamily \#include $<$cmath$>$}\\*
+Include dependency graph for points.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{points_8h_a7bff2da864fb642dcbfa06bc2ac74fa7}{}\#define \hyperlink{points_8h_a7bff2da864fb642dcbfa06bc2ac74fa7}{point}~pair$<$double, double$>$\label{points_8h_a7bff2da864fb642dcbfa06bc2ac74fa7}
+
+\begin{DoxyCompactList}\small\item\em Pair of x, y coordinate of a point. \end{DoxyCompactList}\item 
+\hypertarget{points_8h_a4bb5da68740936bfcd019aa4e0483431}{}\#define \hyperlink{points_8h_a4bb5da68740936bfcd019aa4e0483431}{pointset}~vector$<$\hyperlink{points_8h_a7bff2da864fb642dcbfa06bc2ac74fa7}{point}$>$\label{points_8h_a4bb5da68740936bfcd019aa4e0483431}
+
+\begin{DoxyCompactList}\small\item\em Vector containing all the points. \end{DoxyCompactList}\item 
+\hypertarget{points_8h_aaf29cda67857ebaa72fbb96c0457c700}{}\#define \hyperlink{points_8h_aaf29cda67857ebaa72fbb96c0457c700}{pointstack}~stack$<$\hyperlink{points_8h_a7bff2da864fb642dcbfa06bc2ac74fa7}{point}$>$\label{points_8h_aaf29cda67857ebaa72fbb96c0457c700}
+
+\begin{DoxyCompactList}\small\item\em Stack of given points. \end{DoxyCompactList}\item 
+\hypertarget{points_8h_ace6dc239253765056895d916f3b2c1a3}{}\#define \hyperlink{points_8h_ace6dc239253765056895d916f3b2c1a3}{coord}~make\+\_\+pair\label{points_8h_ace6dc239253765056895d916f3b2c1a3}
+
+\begin{DoxyCompactList}\small\item\em a macro to call make\+\_\+pair function. \end{DoxyCompactList}\item 
+\hypertarget{points_8h_aa822716f3e615cf7dbf531b9bd54751f}{}\#define \hyperlink{points_8h_aa822716f3e615cf7dbf531b9bd54751f}{add\+Point}~push\+\_\+back\label{points_8h_aa822716f3e615cf7dbf531b9bd54751f}
+
+\begin{DoxyCompactList}\small\item\em a macro to call push\+\_\+back function. \end{DoxyCompactList}\item 
+\hypertarget{points_8h_a0f48c17c99b7b74c0d8e10cc7dec387c}{}\#define \hyperlink{points_8h_a0f48c17c99b7b74c0d8e10cc7dec387c}{del\+Point}~pop\+\_\+back\label{points_8h_a0f48c17c99b7b74c0d8e10cc7dec387c}
+
+\begin{DoxyCompactList}\small\item\em a macro to call pop\+\_\+back function. \end{DoxyCompactList}\item 
+\hypertarget{points_8h_adf770fe2eec438e3758ffe905dbae208}{}\#define \hyperlink{points_8h_adf770fe2eec438e3758ffe905dbae208}{I\+N\+V\+A\+L\+I\+D}~777\label{points_8h_adf770fe2eec438e3758ffe905dbae208}
+
+\begin{DoxyCompactList}\small\item\em Term used to declare a point as invalid. \end{DoxyCompactList}\item 
+\#define \hyperlink{points_8h_a598a3330b3c21701223ee0ca14316eca}{P\+I}~3.\+141592653589793
+\begin{DoxyCompactList}\small\item\em A macro that replaces the value of P\+I with 3.\+141592653589793. \end{DoxyCompactList}\item 
+\hypertarget{points_8h_ac328e551bde3d39b6d7b8cc9e048d941}{}\#define \hyperlink{points_8h_ac328e551bde3d39b6d7b8cc9e048d941}{Z\+E\+R\+O}~0.\+0f\label{points_8h_ac328e551bde3d39b6d7b8cc9e048d941}
+
+\begin{DoxyCompactList}\small\item\em Term used to represent Zero angle in float. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{points_8h_a069a8f32f68b6f6bc2c283aa6ba08b7d}{print\+Point} (\hyperlink{points_8h_a7bff2da864fb642dcbfa06bc2ac74fa7}{point} a)
+\begin{DoxyCompactList}\small\item\em Prints a point ( its x and y coordinate). \end{DoxyCompactList}\item 
+double \hyperlink{points_8h_a0c8e9f0ed435ed6d8bc9e5a1f7a34d41}{dist\+Between} (\hyperlink{points_8h_a7bff2da864fb642dcbfa06bc2ac74fa7}{point} a, \hyperlink{points_8h_a7bff2da864fb642dcbfa06bc2ac74fa7}{point} b)
+\begin{DoxyCompactList}\small\item\em Calculates the distance between two points passed as parameters. \end{DoxyCompactList}\item 
+double \hyperlink{points_8h_a11aeb88925b4b67d19896322ded98d95}{angle\+Between} (\hyperlink{points_8h_a7bff2da864fb642dcbfa06bc2ac74fa7}{point} a, \hyperlink{points_8h_a7bff2da864fb642dcbfa06bc2ac74fa7}{point} b, \hyperlink{points_8h_a7bff2da864fb642dcbfa06bc2ac74fa7}{point} c)
+\begin{DoxyCompactList}\small\item\em Calculates the angle between two points wrt third point passed as parameters using cos. \end{DoxyCompactList}\item 
+int \hyperlink{points_8h_aa610aa9018fc7e42689297d64344038c}{signed\+Area} (\hyperlink{points_8h_a7bff2da864fb642dcbfa06bc2ac74fa7}{point} a, \hyperlink{points_8h_a7bff2da864fb642dcbfa06bc2ac74fa7}{point} b, \hyperlink{points_8h_a7bff2da864fb642dcbfa06bc2ac74fa7}{point} c)
+\begin{DoxyCompactList}\small\item\em Calculates the signed area of three points to find the direction in which these three points connect to each other. \end{DoxyCompactList}\item 
+\hyperlink{points_8h_a7bff2da864fb642dcbfa06bc2ac74fa7}{point} \hyperlink{points_8h_ade0ea07172344151e5797441f4102e4a}{get\+Interior\+Point} (\hyperlink{points_8h_a4bb5da68740936bfcd019aa4e0483431}{pointset} \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S})
+\begin{DoxyCompactList}\small\item\em Finds a point lying inside the convex hull. Used for Graham scan. \end{DoxyCompactList}\item 
+\hyperlink{points_8h_a7bff2da864fb642dcbfa06bc2ac74fa7}{point} \hyperlink{points_8h_a6f23edf4476103596aa762acc72a5b3e}{get\+Exterior\+Point} (\hyperlink{points_8h_a4bb5da68740936bfcd019aa4e0483431}{pointset} \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S})
+\begin{DoxyCompactList}\small\item\em Finds a point lying outside the convex hull. Used for Jarvis March and Andrew\textquotesingle{}s algorithm. \end{DoxyCompactList}\item 
+int \hyperlink{points_8h_aa09466518aeb7b0b12b5729c5af6f6c1}{search\+Point\+Set} (\hyperlink{points_8h_a4bb5da68740936bfcd019aa4e0483431}{pointset} \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S}, \hyperlink{points_8h_a7bff2da864fb642dcbfa06bc2ac74fa7}{point} a)
+\begin{DoxyCompactList}\small\item\em Checks if a given point is one among the given set of points. \end{DoxyCompactList}\item 
+bool \hyperlink{points_8h_ad7f985653af831e1bb1fa671f5b9e0ed}{check\+Right\+Turn} (\hyperlink{points_8h_a7bff2da864fb642dcbfa06bc2ac74fa7}{point} a, \hyperlink{points_8h_a7bff2da864fb642dcbfa06bc2ac74fa7}{point} b, \hyperlink{points_8h_a7bff2da864fb642dcbfa06bc2ac74fa7}{point} c)
+\begin{DoxyCompactList}\small\item\em Finds if a set of points in a sequence make a right turn or not. Used in Graham scan and Andrew\textquotesingle{}s algorithm. \end{DoxyCompactList}\item 
+void \hyperlink{points_8h_a2ded54db967c9115b1ce31f9c83de60b}{print\+Convex\+Hull} (\hyperlink{points_8h_a4bb5da68740936bfcd019aa4e0483431}{pointset} \hyperlink{points_8h_a9fa54c2e52b99276ec2a7ddf634874fc}{C\+H})
+\begin{DoxyCompactList}\small\item\em Prints the points lying on the Convex Hull via S\+T\+D\+O\+U\+T. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{points_8h_a439227feff9d7f55384e8780cfc2eb82}{size} = 0
+\item 
+int \hyperlink{points_8h_ab221478ca7d05e317e8f2f5d8d1697d0}{size\+C\+H} = 0
+\item 
+\hyperlink{points_8h_a4bb5da68740936bfcd019aa4e0483431}{pointset} \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S}
+\item 
+\hyperlink{points_8h_a4bb5da68740936bfcd019aa4e0483431}{pointset} \hyperlink{points_8h_a9fa54c2e52b99276ec2a7ddf634874fc}{C\+H}
+\item 
+\hyperlink{points_8h_aaf29cda67857ebaa72fbb96c0457c700}{pointstack} \hyperlink{points_8h_aad7054d73665bb0329acd163521d7c65}{E\+T}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Provides an abstract representation of a point and a set of points. It provides all the functions to manipulate points to perform various operations required by the Convex hull algorithms. 
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{points_8h_a598a3330b3c21701223ee0ca14316eca}{}\index{points.\+h@{points.\+h}!P\+I@{P\+I}}
+\index{P\+I@{P\+I}!points.\+h@{points.\+h}}
+\subsubsection[{P\+I}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+I~3.\+141592653589793}\label{points_8h_a598a3330b3c21701223ee0ca14316eca}
+
+
+A macro that replaces the value of P\+I with 3.\+141592653589793. 
+
+Term used to represent P\+I for angle calculation measured in radians. 
+
+\subsection{Function Documentation}
+\hypertarget{points_8h_a11aeb88925b4b67d19896322ded98d95}{}\index{points.\+h@{points.\+h}!angle\+Between@{angle\+Between}}
+\index{angle\+Between@{angle\+Between}!points.\+h@{points.\+h}}
+\subsubsection[{angle\+Between}]{\setlength{\rightskip}{0pt plus 5cm}double angle\+Between (
+\begin{DoxyParamCaption}
+\item[{{\bf point}}]{a, }
+\item[{{\bf point}}]{b, }
+\item[{{\bf point}}]{c}
+\end{DoxyParamCaption}
+)}\label{points_8h_a11aeb88925b4b67d19896322ded98d95}
+
+
+Calculates the angle between two points wrt third point passed as parameters using cos. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & First point. \\
+\hline
+{\em c} & Second point. \\
+\hline
+{\em b} & Reference point. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+127 \{
+128     \textcolor{comment}{/*A local variable. Declares and initializes angle between points as 0. */}
+129     \textcolor{keywordtype}{double} angle = 0;   
+130 
+131     \textcolor{comment}{/*  A local variable. Determines the distance between point 1 and reference point. */}
+132     \textcolor{keywordtype}{double} moda = \hyperlink{points_8h_a0c8e9f0ed435ed6d8bc9e5a1f7a34d41}{distBetween}(a, b); 
+133     
+134     \textcolor{comment}{/*  A local variable. Determines the distance between point 2 and reference point. */}
+135     \textcolor{keywordtype}{double} modb = \hyperlink{points_8h_a0c8e9f0ed435ed6d8bc9e5a1f7a34d41}{distBetween}(c, b);     
+136 
+137     \textcolor{keywordflow}{if} ( moda == 0 or modb == 0)
+138     \{
+139         \textcolor{keywordflow}{return} \hyperlink{points_8h_adf770fe2eec438e3758ffe905dbae208}{INVALID};
+140     \}
+141 
+142     \textcolor{comment}{/*  A local variable. Calculates the dot product between the segments ac and bc. */}
+143     \textcolor{keywordtype}{double} dot; 
+144     dot = ((a.first - b.first) * (c.first - b.first)) + ((a.second - b.second) * (c.second - b.second));
+145 
+146     angle = acos(dot / (moda * modb));
+147     
+148     \textcolor{keywordflow}{return} angle;
+149 \}
+\end{DoxyCode}
+\hypertarget{points_8h_ad7f985653af831e1bb1fa671f5b9e0ed}{}\index{points.\+h@{points.\+h}!check\+Right\+Turn@{check\+Right\+Turn}}
+\index{check\+Right\+Turn@{check\+Right\+Turn}!points.\+h@{points.\+h}}
+\subsubsection[{check\+Right\+Turn}]{\setlength{\rightskip}{0pt plus 5cm}bool check\+Right\+Turn (
+\begin{DoxyParamCaption}
+\item[{{\bf point}}]{a, }
+\item[{{\bf point}}]{b, }
+\item[{{\bf point}}]{c}
+\end{DoxyParamCaption}
+)}\label{points_8h_ad7f985653af831e1bb1fa671f5b9e0ed}
+
+
+Finds if a set of points in a sequence make a right turn or not. Used in Graham scan and Andrew\textquotesingle{}s algorithm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & First point. \\
+\hline
+{\em b} & Second point. \\
+\hline
+{\em c} & Third point. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+244 \{
+245     \textcolor{keywordflow}{if} ( \hyperlink{points_8h_aa610aa9018fc7e42689297d64344038c}{signedArea}( a, b, c ) > 0 )
+246         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+247     \textcolor{keywordflow}{else}
+248         \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+249 \}
+\end{DoxyCode}
+\hypertarget{points_8h_a0c8e9f0ed435ed6d8bc9e5a1f7a34d41}{}\index{points.\+h@{points.\+h}!dist\+Between@{dist\+Between}}
+\index{dist\+Between@{dist\+Between}!points.\+h@{points.\+h}}
+\subsubsection[{dist\+Between}]{\setlength{\rightskip}{0pt plus 5cm}double dist\+Between (
+\begin{DoxyParamCaption}
+\item[{{\bf point}}]{a, }
+\item[{{\bf point}}]{b}
+\end{DoxyParamCaption}
+)}\label{points_8h_a0c8e9f0ed435ed6d8bc9e5a1f7a34d41}
+
+
+Calculates the distance between two points passed as parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & First point. \\
+\hline
+{\em b} & Second point. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+105 \{
+106     \textcolor{comment}{/* A local variable. Declares and initializes distance as 0. */}
+107     \textcolor{keywordtype}{double} distance = 0;    
+108     
+109     \textcolor{comment}{/* A local variable. Determines squared distance in x direction. */}
+110     \textcolor{keywordtype}{double} x = (a.first - b.first) * (a.first - b.first);   
+111     
+112     \textcolor{comment}{/* A local variable. Determines squared distance in y direction. */}
+113     \textcolor{keywordtype}{double} y = (a.second - b.second) * (a.second - b.second);   
+114     
+115     distance = sqrt( x + y );
+116         
+117     \textcolor{keywordflow}{return} distance;
+118 \}
+\end{DoxyCode}
+\hypertarget{points_8h_a6f23edf4476103596aa762acc72a5b3e}{}\index{points.\+h@{points.\+h}!get\+Exterior\+Point@{get\+Exterior\+Point}}
+\index{get\+Exterior\+Point@{get\+Exterior\+Point}!points.\+h@{points.\+h}}
+\subsubsection[{get\+Exterior\+Point}]{\setlength{\rightskip}{0pt plus 5cm}{\bf point} get\+Exterior\+Point (
+\begin{DoxyParamCaption}
+\item[{{\bf pointset}}]{S}
+\end{DoxyParamCaption}
+)}\label{points_8h_a6f23edf4476103596aa762acc72a5b3e}
+
+
+Finds a point lying outside the convex hull. Used for Jarvis March and Andrew\textquotesingle{}s algorithm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em S} & Set of points to find the interior point within. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+204 \{
+205     \textcolor{comment}{/* A local variable. Declares and initializes the outside point as the first point in pointset and
+       later assigns it a point with minimum y coordiante value. */}
+206     \hyperlink{points_8h_a7bff2da864fb642dcbfa06bc2ac74fa7}{point} outside = \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S}[0]; 
+207     \textcolor{comment}{//printPoint( outside );}
+208 
+209     \textcolor{keywordflow}{for} ( \textcolor{keywordtype}{int} i = 1; i < \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S}.size(); i++ )
+210     \{
+211         \textcolor{keywordflow}{if} ( \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S}[i].second < outside.second )
+212         \{
+213             outside = \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S}[i];
+214         \}
+215     \}
+216 
+217     \textcolor{keywordflow}{return} outside;
+218 \}
+\end{DoxyCode}
+\hypertarget{points_8h_ade0ea07172344151e5797441f4102e4a}{}\index{points.\+h@{points.\+h}!get\+Interior\+Point@{get\+Interior\+Point}}
+\index{get\+Interior\+Point@{get\+Interior\+Point}!points.\+h@{points.\+h}}
+\subsubsection[{get\+Interior\+Point}]{\setlength{\rightskip}{0pt plus 5cm}{\bf point} get\+Interior\+Point (
+\begin{DoxyParamCaption}
+\item[{{\bf pointset}}]{S}
+\end{DoxyParamCaption}
+)}\label{points_8h_ade0ea07172344151e5797441f4102e4a}
+
+
+Finds a point lying inside the convex hull. Used for Graham scan. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em S} & Set of points to find the interior point within. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+179 \{
+180     \textcolor{keywordtype}{int} i = 3;
+181     
+182     \textcolor{comment}{/* A local variable. Declares and initializes the inside point as (0,0). */}
+183     \hyperlink{points_8h_a7bff2da864fb642dcbfa06bc2ac74fa7}{point} inside = \hyperlink{points_8h_ace6dc239253765056895d916f3b2c1a3}{coord}(0, 0);   
+184     \hyperlink{points_8h_a7bff2da864fb642dcbfa06bc2ac74fa7}{point} a = \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S}[0];
+185     \hyperlink{points_8h_a7bff2da864fb642dcbfa06bc2ac74fa7}{point} b = \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S}[1];
+186     \hyperlink{points_8h_a7bff2da864fb642dcbfa06bc2ac74fa7}{point} c = \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S}[2];
+187 
+188     \textcolor{keywordflow}{while}( \hyperlink{points_8h_aa610aa9018fc7e42689297d64344038c}{signedArea}(a, b, c) == 0 )
+189     \{
+190         b = c;
+191         c = \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S}[i++];
+192     \}
+193     
+194     \textcolor{comment}{//finds a centroid of three non-collinear points and makes it the interior point.}
+195     inside = \hyperlink{points_8h_ace6dc239253765056895d916f3b2c1a3}{coord}((a.first + b.first + c.first)/3, (a.second + b.second + c.second)/3);
+196     \textcolor{keywordflow}{return} inside;
+197 \}
+\end{DoxyCode}
+\hypertarget{points_8h_a2ded54db967c9115b1ce31f9c83de60b}{}\index{points.\+h@{points.\+h}!print\+Convex\+Hull@{print\+Convex\+Hull}}
+\index{print\+Convex\+Hull@{print\+Convex\+Hull}!points.\+h@{points.\+h}}
+\subsubsection[{print\+Convex\+Hull}]{\setlength{\rightskip}{0pt plus 5cm}void print\+Convex\+Hull (
+\begin{DoxyParamCaption}
+\item[{{\bf pointset}}]{C\+H}
+\end{DoxyParamCaption}
+)}\label{points_8h_a2ded54db967c9115b1ce31f9c83de60b}
+
+
+Prints the points lying on the Convex Hull via S\+T\+D\+O\+U\+T. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em C\+H} & pointset \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+256 \{
+257     cout << \hyperlink{points_8h_a9fa54c2e52b99276ec2a7ddf634874fc}{CH}.size() << endl;
+258     \textcolor{keywordflow}{for}( \textcolor{keywordtype}{int} i = 0; i < \hyperlink{points_8h_a9fa54c2e52b99276ec2a7ddf634874fc}{CH}.size() ; i++)
+259     \{
+260         \hyperlink{points_8h_a069a8f32f68b6f6bc2c283aa6ba08b7d}{printPoint}( \hyperlink{points_8h_a9fa54c2e52b99276ec2a7ddf634874fc}{CH}[i] );
+261     \}
+262 \}
+\end{DoxyCode}
+\hypertarget{points_8h_a069a8f32f68b6f6bc2c283aa6ba08b7d}{}\index{points.\+h@{points.\+h}!print\+Point@{print\+Point}}
+\index{print\+Point@{print\+Point}!points.\+h@{points.\+h}}
+\subsubsection[{print\+Point}]{\setlength{\rightskip}{0pt plus 5cm}void print\+Point (
+\begin{DoxyParamCaption}
+\item[{{\bf point}}]{a}
+\end{DoxyParamCaption}
+)}\label{points_8h_a069a8f32f68b6f6bc2c283aa6ba08b7d}
+
+
+Prints a point ( its x and y coordinate). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & A point. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+95 \{
+96     cout << setprecision(9) << (double)a.first << \textcolor{stringliteral}{" "} << (\textcolor{keywordtype}{double})a.second << endl;
+97 \}
+\end{DoxyCode}
+\hypertarget{points_8h_aa09466518aeb7b0b12b5729c5af6f6c1}{}\index{points.\+h@{points.\+h}!search\+Point\+Set@{search\+Point\+Set}}
+\index{search\+Point\+Set@{search\+Point\+Set}!points.\+h@{points.\+h}}
+\subsubsection[{search\+Point\+Set}]{\setlength{\rightskip}{0pt plus 5cm}int search\+Point\+Set (
+\begin{DoxyParamCaption}
+\item[{{\bf pointset}}]{S, }
+\item[{{\bf point}}]{a}
+\end{DoxyParamCaption}
+)}\label{points_8h_aa09466518aeb7b0b12b5729c5af6f6c1}
+
+
+Checks if a given point is one among the given set of points. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em S} & Set of points.. \\
+\hline
+{\em a} & A point to be searched. Returns 1 if the point belongs to the pointset else returns -\/1. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+227 \{
+228     \textcolor{keywordflow}{for} ( \textcolor{keywordtype}{int} i = 0; i < \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S}.size(); i++ )
+229     \{
+230         \textcolor{keywordflow}{if} ( \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S}[i].first == a.first and \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S}[i].second == a.second )
+231             \textcolor{keywordflow}{return} i;
+232     \}
+233 
+234     \textcolor{keywordflow}{return} -1;
+235 \}
+\end{DoxyCode}
+\hypertarget{points_8h_aa610aa9018fc7e42689297d64344038c}{}\index{points.\+h@{points.\+h}!signed\+Area@{signed\+Area}}
+\index{signed\+Area@{signed\+Area}!points.\+h@{points.\+h}}
+\subsubsection[{signed\+Area}]{\setlength{\rightskip}{0pt plus 5cm}int signed\+Area (
+\begin{DoxyParamCaption}
+\item[{{\bf point}}]{a, }
+\item[{{\bf point}}]{b, }
+\item[{{\bf point}}]{c}
+\end{DoxyParamCaption}
+)}\label{points_8h_aa610aa9018fc7e42689297d64344038c}
+
+
+Calculates the signed area of three points to find the direction in which these three points connect to each other. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & First point. \\
+\hline
+{\em b} & Second point. \\
+\hline
+{\em c} & Third point. Returns 1 for anti-\/clockwise direction or left turn Returns -\/1 for clockwise direction or right turn Returns 0 if all the points are collinear. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+161 \{
+162     \textcolor{comment}{/* A local variable.Declares and initializes area as 0. */}
+163     \textcolor{keywordtype}{double} area = 0;    
+164 
+165     area = ((b.second - a.second) * (c.first - b.first)) - ((b.first - a.first) * (c.second - b.second));
+166     \textcolor{keywordflow}{if} ( area > 0 )
+167         \textcolor{keywordflow}{return} -1;
+168     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} ( area < 0 )
+169         \textcolor{keywordflow}{return} 1;
+170     \textcolor{keywordflow}{else}
+171         \textcolor{keywordflow}{return} 0;
+172 \}
+\end{DoxyCode}
+
+
+\subsection{Variable Documentation}
+\hypertarget{points_8h_a9fa54c2e52b99276ec2a7ddf634874fc}{}\index{points.\+h@{points.\+h}!C\+H@{C\+H}}
+\index{C\+H@{C\+H}!points.\+h@{points.\+h}}
+\subsubsection[{C\+H}]{\setlength{\rightskip}{0pt plus 5cm}{\bf pointset} C\+H}\label{points_8h_a9fa54c2e52b99276ec2a7ddf634874fc}
+a public variable. Declares a pointset for the set of points in Conves Hull. \hypertarget{points_8h_aad7054d73665bb0329acd163521d7c65}{}\index{points.\+h@{points.\+h}!E\+T@{E\+T}}
+\index{E\+T@{E\+T}!points.\+h@{points.\+h}}
+\subsubsection[{E\+T}]{\setlength{\rightskip}{0pt plus 5cm}{\bf pointstack} E\+T}\label{points_8h_aad7054d73665bb0329acd163521d7c65}
+a public variable. Declares an empty stack. \hypertarget{points_8h_a96bcafe6a15c3e350f400c283f410192}{}\index{points.\+h@{points.\+h}!S@{S}}
+\index{S@{S}!points.\+h@{points.\+h}}
+\subsubsection[{S}]{\setlength{\rightskip}{0pt plus 5cm}{\bf pointset} S}\label{points_8h_a96bcafe6a15c3e350f400c283f410192}
+a public variable. Declares a pointset for the set of given input points. \hypertarget{points_8h_a439227feff9d7f55384e8780cfc2eb82}{}\index{points.\+h@{points.\+h}!size@{size}}
+\index{size@{size}!points.\+h@{points.\+h}}
+\subsubsection[{size}]{\setlength{\rightskip}{0pt plus 5cm}int size = 0}\label{points_8h_a439227feff9d7f55384e8780cfc2eb82}
+a public variable. Denotes the cardinality of the set of given points. \hypertarget{points_8h_ab221478ca7d05e317e8f2f5d8d1697d0}{}\index{points.\+h@{points.\+h}!size\+C\+H@{size\+C\+H}}
+\index{size\+C\+H@{size\+C\+H}!points.\+h@{points.\+h}}
+\subsubsection[{size\+C\+H}]{\setlength{\rightskip}{0pt plus 5cm}int size\+C\+H = 0}\label{points_8h_ab221478ca7d05e317e8f2f5d8d1697d0}
+a public variable. Denotes the cardinality of the set of points in the convex hull. 

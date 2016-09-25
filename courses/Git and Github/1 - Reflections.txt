@@ -1,0 +1,20 @@
+USING DIFF
+----------------------------------------------------
+1.	Using diff can help find bugs in the form of typos.
+2.	Since diff can show all edits, some unaccounted eff-
+	ects of changes due to the edit can identified.
+
+HOW CAN HISTORY OF DOCUMENT IMPROVE EFFICIENCY AS A
+PROGRAMMER?
+-----------------------------------------------------
+1.  Compare previous implementations to current. Not nec-
+	essarily recent versions but sufficiently old ones 
+	too.
+2.	Restart from a previous version if a following set 
+	of changes are rendered meaningless.
+
+MANUAL COMMITS
+-----------------------------------------------------
+1.	Prone to user-error.
+2.	Logical commits possible.
+3.	Independant size of commits.

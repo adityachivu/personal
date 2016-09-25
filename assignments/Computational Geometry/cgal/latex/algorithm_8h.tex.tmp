@@ -1,0 +1,327 @@
+\hypertarget{algorithm_8h}{}\section{algorithm.\+h File Reference}
+\label{algorithm_8h}\index{algorithm.\+h@{algorithm.\+h}}
+
+
+Includes three convex hull algorithms It implements Graham scan algorithm, Jarvis march algorithm and Andrew\textquotesingle{}s convex hull algorithm. It also includes cmath library and points header file.  
+
+
+{\ttfamily \#include $<$algorithm$>$}\\*
+{\ttfamily \#include $<$cmath$>$}\\*
+{\ttfamily \#include \char`\"{}animate.\+h\char`\"{}}\\*
+Include dependency graph for algorithm.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{algorithm_8h_a5ac8eb32fb1aee28e4fb91fbd7214a1e}{}\#define {\bfseries animate}~if(\hyperlink{animate_8h_a95a13658ced0801ed2e2d349bd150dc0}{animtog})\label{algorithm_8h_a5ac8eb32fb1aee28e4fb91fbd7214a1e}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{points_8h_a4bb5da68740936bfcd019aa4e0483431}{pointset} \hyperlink{algorithm_8h_a49f6adefab6f57a7237b9ef5cf08f90d}{convex\+Hull\+Graham\+Scan} (\hyperlink{points_8h_a4bb5da68740936bfcd019aa4e0483431}{pointset} \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S})
+\begin{DoxyCompactList}\small\item\em Returns a pointset determining the convexhull in anti-\/clockwise order using Graham Scan algorithm. \end{DoxyCompactList}\item 
+\hyperlink{points_8h_a4bb5da68740936bfcd019aa4e0483431}{pointset} \hyperlink{algorithm_8h_a551218992d12b24d411a5c294b2c279d}{convex\+Hull\+Jarvis\+March} (\hyperlink{points_8h_a4bb5da68740936bfcd019aa4e0483431}{pointset} \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S})
+\begin{DoxyCompactList}\small\item\em Returns a pointset determining the convexhull in anti-\/clockwise order using Jarvis March algorithm. \end{DoxyCompactList}\item 
+\hyperlink{points_8h_a4bb5da68740936bfcd019aa4e0483431}{pointset} \hyperlink{algorithm_8h_a5ba75e7e86b3da24f7d3b4c5fd7db54f}{convex\+Hull\+Andrew} (\hyperlink{points_8h_a4bb5da68740936bfcd019aa4e0483431}{pointset} \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S})
+\begin{DoxyCompactList}\small\item\em Returns a pointset determining the convexhull in clockwise order using Andrew\textquotesingle{}s algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{algorithm_8h_acf996a2dc669c8f5b1d055232bd40bdf}{}bool {\bfseries computed} = false\label{algorithm_8h_acf996a2dc669c8f5b1d055232bd40bdf}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Includes three convex hull algorithms It implements Graham scan algorithm, Jarvis march algorithm and Andrew\textquotesingle{}s convex hull algorithm. It also includes cmath library and points header file. 
+
+
+
+\subsection{Function Documentation}
+\hypertarget{algorithm_8h_a5ba75e7e86b3da24f7d3b4c5fd7db54f}{}\index{algorithm.\+h@{algorithm.\+h}!convex\+Hull\+Andrew@{convex\+Hull\+Andrew}}
+\index{convex\+Hull\+Andrew@{convex\+Hull\+Andrew}!algorithm.\+h@{algorithm.\+h}}
+\subsubsection[{convex\+Hull\+Andrew}]{\setlength{\rightskip}{0pt plus 5cm}{\bf pointset} convex\+Hull\+Andrew (
+\begin{DoxyParamCaption}
+\item[{{\bf pointset}}]{S}
+\end{DoxyParamCaption}
+)}\label{algorithm_8h_a5ba75e7e86b3da24f7d3b4c5fd7db54f}
+
+
+Returns a pointset determining the convexhull in clockwise order using Andrew\textquotesingle{}s algorithm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pointset} & The set of points S. First the points in the given set are lexicographically sorted. Then an Lup stack is maintained that evaluates the top three point for a Right Turn. If it forms a left turn, then the previous element is popped and top three are reevaluated. A complete traversal over the poinset generates the upper of the convex hull. The procedure is repeated for the pointset in reverse order to generate the lower half of the convex hull stored in Llo. Both the point stacks are appended to generate the final convex hull set. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+165 \{
+166     \hyperlink{points_8h_aaf29cda67857ebaa72fbb96c0457c700}{pointstack} Lup, Llo;
+167 
+168     sort( \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S}.begin(), \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S}.end() );
+169     \hyperlink{points_8h_a7bff2da864fb642dcbfa06bc2ac74fa7}{point} a = \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S}[0], b = \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S}[1], c;
+170 
+171     Lup.push(a);
+172     Lup.push(b);
+173 
+174     \textcolor{keywordflow}{for} ( \textcolor{keywordtype}{int} i = 2; i < \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S}.size(); i++ )
+175     \{
+176         b = Lup.top();
+177         Lup.pop();
+178 
+179         a = Lup.top();
+180         Lup.pop();
+181 
+182         c = \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S}[i];
+183 
+184         \textcolor{keywordflow}{while}( !\hyperlink{points_8h_ad7f985653af831e1bb1fa671f5b9e0ed}{checkRightTurn}(a, b, c) )
+185         \{
+186             animate
+187             \hyperlink{animate_8h_a970847358ec151f53ebc4a27bd753572}{animateSelection}( Lup, a, b, c, \hyperlink{points_8h_aad7054d73665bb0329acd163521d7c65}{ET});
+188             \textcolor{keywordflow}{if} ( Lup.empty() )
+189             \{
+190                 i++;
+191                 b = c;
+192                 c = \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S}[i];
+193                 \textcolor{keywordflow}{continue};
+194             \}
+195             \textcolor{keywordflow}{else}
+196             \{
+197                 b = a;
+198                 a = Lup.top();
+199                 Lup.pop();
+200             \}
+201         \}
+202 
+203         Lup.push( a );
+204         Lup.push( b );
+205         Lup.push( c );
+206         
+207         animate
+208         \hyperlink{animate_8h_a970847358ec151f53ebc4a27bd753572}{animateSelection}( Lup, a, b, c, \hyperlink{points_8h_aad7054d73665bb0329acd163521d7c65}{ET} );
+209     \}
+210 
+211     reverse( \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S}.begin(), \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S}.end() );
+212 
+213     a = \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S}[0];
+214     b = \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S}[1];
+215 
+216     Llo.push( a );
+217     Llo.push( b );
+218 
+219     \textcolor{keywordflow}{for} ( \textcolor{keywordtype}{int} i = 2; i < \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S}.size(); i++ )
+220     \{
+221         b = Llo.top();
+222         Llo.pop();
+223 
+224         a = Llo.top();
+225         Llo.pop();
+226 
+227         c = \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S}[i];
+228 
+229         \textcolor{keywordflow}{while}( !\hyperlink{points_8h_ad7f985653af831e1bb1fa671f5b9e0ed}{checkRightTurn}(a, b, c) )
+230         \{
+231             animate
+232             \hyperlink{animate_8h_a970847358ec151f53ebc4a27bd753572}{animateSelection}( Llo, a, b, c , Lup );
+233             \textcolor{keywordflow}{if} ( Llo.empty() )
+234             \{
+235                 i++;
+236                 b = c;
+237                 c = \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S}[i];
+238                 \textcolor{keywordflow}{continue};
+239             \}
+240             \textcolor{keywordflow}{else}
+241             \{
+242                 b = a;
+243                 a = Llo.top();
+244                 Llo.pop();
+245             \}
+246         \}
+247 
+248         Llo.push( a );
+249         Llo.push( b );
+250         Llo.push( c );
+251         
+252         animate
+253         \hyperlink{animate_8h_a970847358ec151f53ebc4a27bd753572}{animateSelection}( Llo, a, b, c , Lup);
+254     \}
+255     
+256     Llo.pop();
+257     \textcolor{keywordflow}{while}( !Llo.empty() )
+258     \{
+259         \hyperlink{points_8h_a9fa54c2e52b99276ec2a7ddf634874fc}{CH}.addPoint( Llo.top() );
+260         Llo.pop();
+261     \}
+262 
+263     Lup.pop();
+264     \textcolor{keywordflow}{while}( !Lup.empty() )
+265     \{
+266         \hyperlink{points_8h_a9fa54c2e52b99276ec2a7ddf634874fc}{CH}.addPoint( Lup.top() );
+267         Lup.pop();
+268     \}
+269 
+270     \textcolor{keywordflow}{return} \hyperlink{points_8h_a9fa54c2e52b99276ec2a7ddf634874fc}{CH};
+271 \}\end{DoxyCode}
+\hypertarget{algorithm_8h_a49f6adefab6f57a7237b9ef5cf08f90d}{}\index{algorithm.\+h@{algorithm.\+h}!convex\+Hull\+Graham\+Scan@{convex\+Hull\+Graham\+Scan}}
+\index{convex\+Hull\+Graham\+Scan@{convex\+Hull\+Graham\+Scan}!algorithm.\+h@{algorithm.\+h}}
+\subsubsection[{convex\+Hull\+Graham\+Scan}]{\setlength{\rightskip}{0pt plus 5cm}{\bf pointset} convex\+Hull\+Graham\+Scan (
+\begin{DoxyParamCaption}
+\item[{{\bf pointset}}]{S}
+\end{DoxyParamCaption}
+)}\label{algorithm_8h_a49f6adefab6f57a7237b9ef5cf08f90d}
+
+
+Returns a pointset determining the convexhull in anti-\/clockwise order using Graham Scan algorithm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pointset} & The set of points S. First an interior point of the given set is determined. Then the angle formed by every point in the set with respect to the positive X-\/axis is calculated and the points are sorted by angle. For every three consecutive points that form a left turn, the points are added to a point stack. If the points form a left turn, then the previous point is popped and revalutaed with the latest point from the unseen pointset. This is repeated till all points in the sorted pointset are traversed once and there are no more changes to be made. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+40 \{
+41     vector< pair< double, point > > angS;
+42     \hyperlink{points_8h_aaf29cda67857ebaa72fbb96c0457c700}{pointstack} stackCH;
+43 
+44     \hyperlink{points_8h_a7bff2da864fb642dcbfa06bc2ac74fa7}{point} centre = \hyperlink{points_8h_ade0ea07172344151e5797441f4102e4a}{getInteriorPoint}( \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S} );
+45     \hyperlink{points_8h_a7bff2da864fb642dcbfa06bc2ac74fa7}{point} axis = \hyperlink{points_8h_a6f23edf4476103596aa762acc72a5b3e}{getExteriorPoint}( \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S} );
+46     \textcolor{keywordtype}{int} index = \hyperlink{points_8h_aa09466518aeb7b0b12b5729c5af6f6c1}{searchPointSet}( \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S}, axis );
+47 
+48     \textcolor{keywordflow}{for} ( \textcolor{keywordtype}{int} i = 0; i < \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S}.size(); i++ )
+49     \{
+50         \textcolor{keywordflow}{if}( i == index )
+51         \{
+52             angS.push\_back(make\_pair( \hyperlink{points_8h_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}, \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S}[i] ));
+53             angS.push\_back(make\_pair( (2 * \hyperlink{points_8h_a598a3330b3c21701223ee0ca14316eca}{PI}), \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S}[i]));
+54             \textcolor{keywordflow}{continue};
+55         \}
+56 
+57         \textcolor{keywordtype}{double} angle = \hyperlink{points_8h_a11aeb88925b4b67d19896322ded98d95}{angleBetween}(\hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S}[i], centre, axis);
+58         \textcolor{keywordflow}{if} ( angle == \hyperlink{points_8h_adf770fe2eec438e3758ffe905dbae208}{INVALID} )
+59         \{
+60             \textcolor{keywordflow}{continue};
+61         \}
+62 
+63         \textcolor{keywordflow}{if} ( \hyperlink{points_8h_ad7f985653af831e1bb1fa671f5b9e0ed}{checkRightTurn}(centre, axis, \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S}[i]) )
+64         \{
+65             angle = (2 * \hyperlink{points_8h_a598a3330b3c21701223ee0ca14316eca}{PI}) - angle;
+66         \}
+67 
+68         angS.push\_back(make\_pair(angle, \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S}[i]));        
+69     \}
+70 
+71     sort(angS.begin(), angS.end());
+72     
+73     \hyperlink{points_8h_a7bff2da864fb642dcbfa06bc2ac74fa7}{point} a = angS[0].second, b = angS[1].second, c;
+74     stackCH.push(a);
+75     stackCH.push(b);
+76 
+77     \textcolor{keywordflow}{for} ( \textcolor{keywordtype}{int} i = 2; i < angS.size(); i++ )
+78     \{
+79         b = stackCH.top();
+80         stackCH.pop();
+81 
+82         a = stackCH.top();
+83         stackCH.pop();
+84 
+85         c = angS[i].second;
+86 
+87         \textcolor{keywordflow}{while}( \hyperlink{points_8h_ad7f985653af831e1bb1fa671f5b9e0ed}{checkRightTurn}(a, b, c) )
+88         \{
+89             animate
+90             \hyperlink{animate_8h_a970847358ec151f53ebc4a27bd753572}{animateSelection}( stackCH, a, b, c, \hyperlink{points_8h_aad7054d73665bb0329acd163521d7c65}{ET} );
+91             \textcolor{keywordflow}{if} ( stackCH.empty() )
+92             \{
+93                 i++;
+94                 b = c;
+95                 c = angS[i].second;
+96                 \textcolor{keywordflow}{continue};
+97             \}
+98             \textcolor{keywordflow}{else}
+99             \{
+100                 b = a;
+101                 a = stackCH.top();
+102                 stackCH.pop();
+103             \}
+104         \}
+105 
+106         stackCH.push(a);
+107         stackCH.push(b);
+108         stackCH.push(c);
+109 
+110         animate
+111         \hyperlink{animate_8h_a970847358ec151f53ebc4a27bd753572}{animateSelection}(stackCH, a, b, c, \hyperlink{points_8h_aad7054d73665bb0329acd163521d7c65}{ET});
+112     \}
+113 
+114     \textcolor{keywordflow}{while} ( !stackCH.empty() )
+115     \{
+116         \hyperlink{points_8h_a9fa54c2e52b99276ec2a7ddf634874fc}{CH}.addPoint(stackCH.top());
+117         stackCH.pop();
+118     \}
+119 
+120     \hyperlink{points_8h_a9fa54c2e52b99276ec2a7ddf634874fc}{CH}.delPoint();
+121     \textcolor{keywordflow}{return} \hyperlink{points_8h_a9fa54c2e52b99276ec2a7ddf634874fc}{CH};
+122 \}
+\end{DoxyCode}
+\hypertarget{algorithm_8h_a551218992d12b24d411a5c294b2c279d}{}\index{algorithm.\+h@{algorithm.\+h}!convex\+Hull\+Jarvis\+March@{convex\+Hull\+Jarvis\+March}}
+\index{convex\+Hull\+Jarvis\+March@{convex\+Hull\+Jarvis\+March}!algorithm.\+h@{algorithm.\+h}}
+\subsubsection[{convex\+Hull\+Jarvis\+March}]{\setlength{\rightskip}{0pt plus 5cm}{\bf pointset} convex\+Hull\+Jarvis\+March (
+\begin{DoxyParamCaption}
+\item[{{\bf pointset}}]{S}
+\end{DoxyParamCaption}
+)}\label{algorithm_8h_a551218992d12b24d411a5c294b2c279d}
+
+
+Returns a pointset determining the convexhull in anti-\/clockwise order using Jarvis March algorithm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pointset} & The set of points S. First an point exterior to the given set is determined. Initially, the X-\/axis is used as the reference axis to measure all angles. The point subtending smallest angle with this axis is added to the convex hull set. For subsequent iterations, the last determined convex hull edge is used as reference axis. This is because corresponding to this edge, all angles lie in the range zero to pi. Once the start point is identified as the smallest angle point. The closed loop is formed. This pointset is the required convex hull set. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+125 \{
+126     \textcolor{keywordtype}{double} minangle = \hyperlink{points_8h_a598a3330b3c21701223ee0ca14316eca}{PI}, angle = 0;
+127     \textcolor{keywordtype}{int} \textcolor{keywordtype}{id} = 0; 
+128 
+129     \hyperlink{points_8h_a7bff2da864fb642dcbfa06bc2ac74fa7}{point} start = \hyperlink{points_8h_a6f23edf4476103596aa762acc72a5b3e}{getExteriorPoint}(\hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S});
+130     \hyperlink{points_8h_a7bff2da864fb642dcbfa06bc2ac74fa7}{point} curr = start;
+131     \hyperlink{points_8h_a7bff2da864fb642dcbfa06bc2ac74fa7}{point} prev;
+132     \hyperlink{points_8h_a7bff2da864fb642dcbfa06bc2ac74fa7}{point} axis = \hyperlink{points_8h_ace6dc239253765056895d916f3b2c1a3}{coord}(curr.first + 1, curr.second);
+133     
+134     \hyperlink{points_8h_a9fa54c2e52b99276ec2a7ddf634874fc}{CH}.addPoint(start);
+135     
+136     \textcolor{keywordflow}{while}( curr != start or \hyperlink{points_8h_a9fa54c2e52b99276ec2a7ddf634874fc}{CH}.size() < 2 )
+137     \{
+138         minangle = \hyperlink{points_8h_a598a3330b3c21701223ee0ca14316eca}{PI};
+139 
+140         \textcolor{keywordflow}{for} ( \textcolor{keywordtype}{int} i = 0; i < \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S}.size(); i++ )
+141         \{
+142             angle = \hyperlink{points_8h_a11aeb88925b4b67d19896322ded98d95}{angleBetween}(\hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S}[i], curr, axis);
+143 
+144             animate
+145             \hyperlink{animate_8h_a970847358ec151f53ebc4a27bd753572}{animateSelection}(\hyperlink{points_8h_a9fa54c2e52b99276ec2a7ddf634874fc}{CH}, curr, \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S}[i]);
+146             \textcolor{keywordflow}{if} ( angle < minangle and angle != \hyperlink{points_8h_adf770fe2eec438e3758ffe905dbae208}{INVALID} )
+147             \{
+148                 minangle = angle;
+149                 \textcolor{keywordtype}{id} = i;
+150             \}
+151         \}
+152 
+153         prev = curr;
+154         curr = \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S}[id];
+155         \hyperlink{points_8h_a9fa54c2e52b99276ec2a7ddf634874fc}{CH}.addPoint(curr);
+156 
+157         axis = \hyperlink{points_8h_ace6dc239253765056895d916f3b2c1a3}{coord}(2 * curr.first - prev.first, 2 * curr.second - prev.second);      
+158     \}
+159     
+160     \hyperlink{points_8h_a9fa54c2e52b99276ec2a7ddf634874fc}{CH}.delPoint();
+161     \textcolor{keywordflow}{return} \hyperlink{points_8h_a9fa54c2e52b99276ec2a7ddf634874fc}{CH};
+162 \}
+\end{DoxyCode}

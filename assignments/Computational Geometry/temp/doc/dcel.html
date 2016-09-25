@@ -1,0 +1,50 @@
+<title>Doubly Connected Edge List</title>
+<head><h1><center>Doubly Connected Edge List</center></h1></head>
+
+<body>
+<h2><b>Objective:</b></h2>
+<p>
+To create a DCEL data structure API to represent Meshes and Subdivisions and perform relevant operations and queries. A new DCEL is initialized by creating an object of class <b>Mesh</b>. Mesh consists of the following classes.
+<ol>
+	<li>
+		HalfEdge
+	<li>
+		Vertex
+	<li>
+		Face
+	<li>
+		EdgeIterator
+</ol>
+</br>
+A brief explanation of the methods defined in Mesh class is as follows:
+</p>
+
+<h2><b>Design Principles</b></h2>
+<p>
+Here we take a look at a breakdown of our code and explain our approach.
+</p>
+<ul>
+	<li><b>createHalfEdge/ createVertex/ createFace </b></br>
+		<p>
+			These create the required pointers and push them into the Mesh structure. The Mesh maintains a list of all the Faces and Vertices and HalfEdges in a vector
+		</p>
+	<li><b>createPolygonMesh</b></br>
+		<p>
+			This method creates a two-faced (pun intended) Mesh, an exterior and interior face. and updates required HalfEdge and Vertex pointers.
+		</p>
+	<li><b>triangulate</b></br>
+		<p>
+			This method first makes a call to makeYmonotone and the triangulates each resulting face.
+		</p>
+</ul>
+</br>
+<h2><b> Analysis on Test Cases: </b></h2>
+<p>
+<ol>
+
+	
+</ol>
+</br>
+
+</p>
+</body>

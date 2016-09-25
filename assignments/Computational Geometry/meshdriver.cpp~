@@ -1,0 +1,8 @@
+#include <cstdio>
+#include <iostream>
+#include "cgal/data/mesh.h"
+
+int main()
+{
+	return 0;
+}

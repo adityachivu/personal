@@ -1,0 +1,268 @@
+/*! \file convexhull.h
+\brief Includes three convex hull algorithms
+It implements Graham scan algorithm, Jarvis march algorithm and Andrew's convex hull algorithm. It also includes cmath library and points header file.
+*/
+
+/*! \def PI
+\brief A macro that replaces the value of PI with 3.141592653589793
+*/
+
+/*! \var pointstack Lup A local variable. A stack for storing the points lying on the upper half of convex hull. */
+
+#include <algorithm>
+#include <cmath>
+
+#include "animate.h"
+
+#define animate if(animtog)
+
+bool computed = false;
+
+/*! \fn pointset convexHullGrahamScan( pointset S )
+\brief Returns a pointset determining the convexhull in anti-clockwise order using Graham Scan algorithm.
+\param pointset  The set of points S.
+First an interior point of the given set is determined. Then the angle formed by every point in the set with respect to the positive X-axis is calculated and the points are sorted by angle. For every three consecutive points that form a left turn, the points are added to a point stack. If the points form a left turn, then the previous point is popped and revalutaed with the latest point from the unseen pointset. This is repeated till all points in the sorted pointset are traversed once and there are no more changes to be made. 
+*/
+pointset convexHullGrahamScan( pointset S )
+{
+	vector< pair< double, point > > angS;
+	pointstack stackCH;
+
+	point centre = getInteriorPoint( S );
+	point axis = getExteriorPoint( S );
+	int index = searchPointSet( S, axis );
+
+	for ( int i = 0; i < S.size(); i++ )
+	{
+		if( i == index )
+		{
+			angS.push_back(make_pair( ZERO, S[i] ));
+			angS.push_back(make_pair( (2 * PI), S[i]));
+			continue;
+		}
+
+		double angle = angleBetween(S[i], centre, axis);
+		if ( angle == INVALID )
+		{
+			continue;
+		}
+
+		if ( checkRightTurn(centre, axis, S[i]) )
+		{
+			angle = (2 * PI) - angle;
+		}
+
+		angS.push_back(make_pair(angle, S[i]));		
+	}
+
+	sort(angS.begin(), angS.end());
+	
+	point a = angS[0].second, b = angS[1].second, c;
+	stackCH.push(a);
+	stackCH.push(b);
+
+	for ( int i = 2; i < angS.size(); i++ )
+	{
+		b = stackCH.top();
+		stackCH.pop();
+
+		a = stackCH.top();
+		stackCH.pop();
+
+		c = angS[i].second;
+
+		while( checkRightTurn(a, b, c) )
+		{
+			animate
+			animateSelection( stackCH, a, b, c, ET );
+			if ( stackCH.empty() )
+			{
+				i++;
+				b = c;
+				c = angS[i].second;
+				continue;
+			}
+			else
+			{
+				b = a;
+				a = stackCH.top();
+				stackCH.pop();
+			}
+		}
+
+		stackCH.push(a);
+		stackCH.push(b);
+		stackCH.push(c);
+
+		animate
+		animateSelection(stackCH, a, b, c, ET);
+	}
+
+	while ( !stackCH.empty() )
+	{
+		CH.addPoint(stackCH.top());
+		stackCH.pop();
+	}
+
+	CH.delPoint();
+	return CH;
+}
+
+/*! \fn pointset convexHullJarvisMarch( pointset S )
+\brief Returns a pointset determining the convexhull in anti-clockwise order using Jarvis March algorithm.
+\param pointset  The set of points S.
+First an point exterior to the given set is determined. Initially, the X-axis is used as the reference axis to measure all angles. The point subtending smallest angle with this axis is added to the convex hull set. For subsequent iterations, the last determined convex hull edge is used as reference axis. This is because corresponding to this edge, all angles lie in the range zero to pi. Once the start point is identified as the smallest angle point. The closed loop is formed. This pointset is the required convex hull set.
+*/
+pointset convexHullJarvisMarch( pointset S )
+{
+	double minangle = PI, angle = 0;
+	int id = 0;	
+
+	point start = getExteriorPoint(S);
+	point curr = start;
+	point prev;
+	point axis = coord(curr.first + 1, curr.second);
+	
+	CH.addPoint(start);
+	
+	while( curr != start or CH.size() < 2 )
+	{
+		minangle = PI;
+
+		for ( int i = 0; i < S.size(); i++ )
+		{
+			angle = angleBetween(S[i], curr, axis);
+
+			animate
+			animateSelection(CH, curr, S[i]);
+			if ( angle < minangle and angle != INVALID )
+			{
+				minangle = angle;
+				id = i;
+			}
+		}
+
+		prev = curr;
+		curr = S[id];
+		CH.addPoint(curr);
+
+		axis = coord(2 * curr.first - prev.first, 2 * curr.second - prev.second);		
+	}
+	
+	CH.delPoint();
+	return CH;
+}
+
+/*! \fn pointset convexHullAndrew( pointset S )
+\brief Returns a pointset determining the convexhull in clockwise order using Andrew's algorithm.
+\param pointset  The set of points S.
+First the points in the given set are lexicographically sorted. Then an Lup stack is maintained that evaluates the top three point for a Right Turn. If it forms a left turn, then the previous element is popped and top three are reevaluated. A complete traversal over the poinset generates the upper of the convex hull. The procedure is repeated for the pointset in reverse order to generate the lower half of the convex hull stored in Llo. Both the point stacks are appended to generate the final convex hull set.
+*/
+pointset convexHullAndrew( pointset S )
+{
+	pointstack Lup, Llo;
+
+	sort( S.begin(), S.end() );
+	point a = S[0], b = S[1], c;
+
+	Lup.push(a);
+	Lup.push(b);
+
+	for ( int i = 2; i < S.size(); i++ )
+	{
+		b = Lup.top();
+		Lup.pop();
+
+		a = Lup.top();
+		Lup.pop();
+
+		c = S[i];
+
+		while( !checkRightTurn(a, b, c) )
+		{
+			animate
+			animateSelection( Lup, a, b, c, ET);
+			if ( Lup.empty() )
+			{
+				i++;
+				b = c;
+				c = S[i];
+				continue;
+			}
+			else
+			{
+				b = a;
+				a = Lup.top();
+				Lup.pop();
+			}
+		}
+
+		Lup.push( a );
+		Lup.push( b );
+		Lup.push( c );
+		
+		animate
+		animateSelection( Lup, a, b, c, ET );
+	}
+
+	reverse( S.begin(), S.end() );
+
+	a = S[0];
+	b = S[1];
+
+	Llo.push( a );
+	Llo.push( b );
+
+	for ( int i = 2; i < S.size(); i++ )
+	{
+		b = Llo.top();
+		Llo.pop();
+
+		a = Llo.top();
+		Llo.pop();
+
+		c = S[i];
+
+		while( !checkRightTurn(a, b, c) )
+		{
+			animate
+			animateSelection( Llo, a, b, c , Lup );
+			if ( Llo.empty() )
+			{
+				i++;
+				b = c;
+				c = S[i];
+				continue;
+			}
+			else
+			{
+				b = a;
+				a = Llo.top();
+				Llo.pop();
+			}
+		}
+
+		Llo.push( a );
+		Llo.push( b );
+		Llo.push( c );
+		
+		animate
+		animateSelection( Llo, a, b, c , Lup);
+	}
+    
+    Llo.pop();
+	while( !Llo.empty() )
+	{
+		CH.addPoint( Llo.top() );
+		Llo.pop();
+	}
+
+	Lup.pop();
+	while( !Lup.empty() )
+	{
+		CH.addPoint( Lup.top() );
+		Lup.pop();
+	}
+
+	return CH;
+}

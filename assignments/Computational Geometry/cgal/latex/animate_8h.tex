@@ -1,0 +1,377 @@
+\hypertarget{animate_8h}{}\section{animate.\+h File Reference}
+\label{animate_8h}\index{animate.\+h@{animate.\+h}}
+
+
+Displays the working of the algorithms through animation.  
+
+
+{\ttfamily \#include \char`\"{}points.\+h\char`\"{}}\\*
+Include dependency graph for animate.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{animate_8h_a241aeeb764887ae5e3de58b98f04b16d}{}\#define \hyperlink{animate_8h_a241aeeb764887ae5e3de58b98f04b16d}{W\+I\+D\+T\+H}~60\label{animate_8h_a241aeeb764887ae5e3de58b98f04b16d}
+
+\begin{DoxyCompactList}\small\item\em Width of the Clipping plane is 60. \end{DoxyCompactList}\item 
+\hypertarget{animate_8h_aed89bd71aee8be823e8a20ec4e093c1e}{}\#define \hyperlink{animate_8h_aed89bd71aee8be823e8a20ec4e093c1e}{H\+E\+I\+G\+H\+T}~60\label{animate_8h_aed89bd71aee8be823e8a20ec4e093c1e}
+
+\begin{DoxyCompactList}\small\item\em Height of the Clipping plane is 60. \end{DoxyCompactList}\item 
+\hypertarget{animate_8h_a4af1b6159e447ba72652bb7fcdfa726e}{}\#define \hyperlink{animate_8h_a4af1b6159e447ba72652bb7fcdfa726e}{E\+S\+C}~27\label{animate_8h_a4af1b6159e447ba72652bb7fcdfa726e}
+
+\begin{DoxyCompactList}\small\item\em Exit the G\+L window. \end{DoxyCompactList}\item 
+\hypertarget{animate_8h_a03dcc6d12ab68f4c3dd8faf2ed1dbc79}{}\#define \hyperlink{animate_8h_a03dcc6d12ab68f4c3dd8faf2ed1dbc79}{M\+U\+\_\+\+S\+E\+C}~1000\label{animate_8h_a03dcc6d12ab68f4c3dd8faf2ed1dbc79}
+
+\begin{DoxyCompactList}\small\item\em Multiplier for microseconds. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{animate_8h_a5f7658bbd8ecc54af8d77b14f68dabd4}{process\+Normal\+Keys} (unsigned char key, int xx, int yy)
+\begin{DoxyCompactList}\small\item\em Event handler for a key press. \end{DoxyCompactList}\item 
+\hypertarget{animate_8h_af1d8945a7d8f56dedd1c3dc2b7528217}{}void \hyperlink{animate_8h_af1d8945a7d8f56dedd1c3dc2b7528217}{graphics\+Initialize} ()\label{animate_8h_af1d8945a7d8f56dedd1c3dc2b7528217}
+
+\begin{DoxyCompactList}\small\item\em Initializes viewing graphics parameters and registers callbacks. \end{DoxyCompactList}\item 
+void \hyperlink{animate_8h_a164b8cbd9f06eaa4af7bd878087199e6}{draw\+Point} (\hyperlink{points_8h_a7bff2da864fb642dcbfa06bc2ac74fa7}{point} a)
+\begin{DoxyCompactList}\small\item\em Draws a point on the G\+L window. \end{DoxyCompactList}\item 
+void \hyperlink{animate_8h_a3f1a3c82f580d30650114baa50f5658e}{plot\+Points} (\hyperlink{points_8h_a4bb5da68740936bfcd019aa4e0483431}{pointset} \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S})
+\begin{DoxyCompactList}\small\item\em Plots the set of points on G\+L window. \end{DoxyCompactList}\item 
+void \hyperlink{animate_8h_a00e7dc2a5b11639762d1bae6e6bdf4fe}{draw\+Line} (\hyperlink{points_8h_a7bff2da864fb642dcbfa06bc2ac74fa7}{point} a, \hyperlink{points_8h_a7bff2da864fb642dcbfa06bc2ac74fa7}{point} b)
+\begin{DoxyCompactList}\small\item\em Draws a line segment between two given points. \end{DoxyCompactList}\item 
+void \hyperlink{animate_8h_aecd9aa84d3fe76fe2c5c209b5dd23f67}{draw\+Line\+Loop} (\hyperlink{points_8h_a4bb5da68740936bfcd019aa4e0483431}{pointset} \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S})
+\begin{DoxyCompactList}\small\item\em Draws a closed loop of line segments. \end{DoxyCompactList}\item 
+void \hyperlink{animate_8h_a8947dcec1b8d99e0df2f4bc686ba2a13}{draw\+Poly\+Line} (\hyperlink{points_8h_a4bb5da68740936bfcd019aa4e0483431}{pointset} \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S})
+\begin{DoxyCompactList}\small\item\em Draws a polyline. \end{DoxyCompactList}\item 
+void \hyperlink{animate_8h_a5d4b4187d67900909e9b0f8e7dcb0fe5}{draw\+Poly\+Line} (\hyperlink{points_8h_aaf29cda67857ebaa72fbb96c0457c700}{pointstack} \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S})
+\begin{DoxyCompactList}\small\item\em Converts pointstack to pointset and draws a polyline. \end{DoxyCompactList}\item 
+void \hyperlink{animate_8h_a970847358ec151f53ebc4a27bd753572}{animate\+Selection} (\hyperlink{points_8h_a4bb5da68740936bfcd019aa4e0483431}{pointset} \hyperlink{points_8h_a9fa54c2e52b99276ec2a7ddf634874fc}{C\+H}, \hyperlink{points_8h_a7bff2da864fb642dcbfa06bc2ac74fa7}{point} a, \hyperlink{points_8h_a7bff2da864fb642dcbfa06bc2ac74fa7}{point} b)
+\begin{DoxyCompactList}\small\item\em Initializes the frame parameters. Draws current portion of convex hull and the point being considered. \end{DoxyCompactList}\item 
+void \hyperlink{animate_8h_ad0b7b5229b04149b36b3b5235236ae76}{animate\+Selection} (\hyperlink{points_8h_aaf29cda67857ebaa72fbb96c0457c700}{pointstack} \hyperlink{points_8h_a9fa54c2e52b99276ec2a7ddf634874fc}{C\+H}, \hyperlink{points_8h_a7bff2da864fb642dcbfa06bc2ac74fa7}{point} a, \hyperlink{points_8h_a7bff2da864fb642dcbfa06bc2ac74fa7}{point} b, \hyperlink{points_8h_a7bff2da864fb642dcbfa06bc2ac74fa7}{point} c, \hyperlink{points_8h_aaf29cda67857ebaa72fbb96c0457c700}{pointstack} C\+H2)
+\begin{DoxyCompactList}\small\item\em Initializes the frame parameters. Draws current portion of convex hull and the point being considered. \end{DoxyCompactList}\item 
+void \hyperlink{animate_8h_ad5468108be9f9f84342d9e2c2811fe56}{draw\+Convex\+Hull} (\hyperlink{points_8h_a4bb5da68740936bfcd019aa4e0483431}{pointset} \hyperlink{points_8h_a9fa54c2e52b99276ec2a7ddf634874fc}{C\+H})
+\begin{DoxyCompactList}\small\item\em Refreshes the G\+L window and draws the final convex hull. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{animate_8h_a95a13658ced0801ed2e2d349bd150dc0}{animtog} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Displays the working of the algorithms through animation. 
+
+
+
+\subsection{Function Documentation}
+\hypertarget{animate_8h_a970847358ec151f53ebc4a27bd753572}{}\index{animate.\+h@{animate.\+h}!animate\+Selection@{animate\+Selection}}
+\index{animate\+Selection@{animate\+Selection}!animate.\+h@{animate.\+h}}
+\subsubsection[{animate\+Selection}]{\setlength{\rightskip}{0pt plus 5cm}void animate\+Selection (
+\begin{DoxyParamCaption}
+\item[{{\bf pointset}}]{C\+H, }
+\item[{{\bf point}}]{a, }
+\item[{{\bf point}}]{b}
+\end{DoxyParamCaption}
+)}\label{animate_8h_a970847358ec151f53ebc4a27bd753572}
+
+
+Initializes the frame parameters. Draws current portion of convex hull and the point being considered. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em C\+H} & current portion of convex hull. \\
+\hline
+{\em a} & terminal point of current segment. \\
+\hline
+{\em b} & terminal point of current segment. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+148 \{
+149     glClear(GL\_COLOR\_BUFFER\_BIT | GL\_DEPTH\_BUFFER\_BIT);
+150 
+151     \hyperlink{animate_8h_a3f1a3c82f580d30650114baa50f5658e}{plotPoints}( \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S} );
+152 
+153     glColor3f(0.0, 1.0, 0.0);
+154     \hyperlink{animate_8h_a8947dcec1b8d99e0df2f4bc686ba2a13}{drawPolyLine}( \hyperlink{points_8h_a9fa54c2e52b99276ec2a7ddf634874fc}{CH} );
+155 
+156     glColor3f(1.0, 0.0, 0.0);
+157     \hyperlink{animate_8h_a00e7dc2a5b11639762d1bae6e6bdf4fe}{drawLine}( a, b );
+158 
+159     glutSwapBuffers();
+160     usleep( (1000/\hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S}.size())* \hyperlink{animate_8h_a03dcc6d12ab68f4c3dd8faf2ed1dbc79}{MU\_SEC} );
+161 \}
+\end{DoxyCode}
+\hypertarget{animate_8h_ad0b7b5229b04149b36b3b5235236ae76}{}\index{animate.\+h@{animate.\+h}!animate\+Selection@{animate\+Selection}}
+\index{animate\+Selection@{animate\+Selection}!animate.\+h@{animate.\+h}}
+\subsubsection[{animate\+Selection}]{\setlength{\rightskip}{0pt plus 5cm}void animate\+Selection (
+\begin{DoxyParamCaption}
+\item[{{\bf pointstack}}]{C\+H, }
+\item[{{\bf point}}]{a, }
+\item[{{\bf point}}]{b, }
+\item[{{\bf point}}]{c, }
+\item[{{\bf pointstack}}]{C\+H2}
+\end{DoxyParamCaption}
+)}\label{animate_8h_ad0b7b5229b04149b36b3b5235236ae76}
+
+
+Initializes the frame parameters. Draws current portion of convex hull and the point being considered. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em C\+H} & current portion of convex hull. \\
+\hline
+{\em a} & terminal point of current segment. \\
+\hline
+{\em b} & terminal point of current segment. \\
+\hline
+{\em c} & terminal point of current segment. \\
+\hline
+{\em C\+H2} & previous portion of convex hull. Used only for Andrew\textquotesingle{}s algorithm. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+172 \{
+173     glClear(GL\_COLOR\_BUFFER\_BIT | GL\_DEPTH\_BUFFER\_BIT);
+174 
+175     \hyperlink{animate_8h_a3f1a3c82f580d30650114baa50f5658e}{plotPoints}( \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S} );
+176 
+177     glColor3f(0.0, 1.0, 0.0);
+178     \hyperlink{animate_8h_a8947dcec1b8d99e0df2f4bc686ba2a13}{drawPolyLine}( \hyperlink{points_8h_a9fa54c2e52b99276ec2a7ddf634874fc}{CH} );
+179     \hyperlink{animate_8h_a8947dcec1b8d99e0df2f4bc686ba2a13}{drawPolyLine}( CH2 );
+180 
+181     glColor3f(1.0, 0.0, 0.0);
+182     \hyperlink{animate_8h_a00e7dc2a5b11639762d1bae6e6bdf4fe}{drawLine}( a, b );
+183     glColor3f(0.0, 0.0, 1.0);
+184     \hyperlink{animate_8h_a00e7dc2a5b11639762d1bae6e6bdf4fe}{drawLine}( b, c );
+185 
+186     glutSwapBuffers();
+187     usleep( (10000/\hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S}.size()) * \hyperlink{animate_8h_a03dcc6d12ab68f4c3dd8faf2ed1dbc79}{MU\_SEC} );
+188 \}
+\end{DoxyCode}
+\hypertarget{animate_8h_ad5468108be9f9f84342d9e2c2811fe56}{}\index{animate.\+h@{animate.\+h}!draw\+Convex\+Hull@{draw\+Convex\+Hull}}
+\index{draw\+Convex\+Hull@{draw\+Convex\+Hull}!animate.\+h@{animate.\+h}}
+\subsubsection[{draw\+Convex\+Hull}]{\setlength{\rightskip}{0pt plus 5cm}void draw\+Convex\+Hull (
+\begin{DoxyParamCaption}
+\item[{{\bf pointset}}]{C\+H}
+\end{DoxyParamCaption}
+)}\label{animate_8h_ad5468108be9f9f84342d9e2c2811fe56}
+
+
+Refreshes the G\+L window and draws the final convex hull. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em C\+H} & pointset containing final convex hull. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+195 \{
+196     glClear(GL\_COLOR\_BUFFER\_BIT | GL\_DEPTH\_BUFFER\_BIT);
+197 
+198     \hyperlink{animate_8h_a3f1a3c82f580d30650114baa50f5658e}{plotPoints}( \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S} );
+199 
+200     glColor3f(0.0, 1.0, 0.0);
+201     \hyperlink{animate_8h_aecd9aa84d3fe76fe2c5c209b5dd23f67}{drawLineLoop}( \hyperlink{points_8h_a9fa54c2e52b99276ec2a7ddf634874fc}{CH} );
+202 \}\end{DoxyCode}
+\hypertarget{animate_8h_a00e7dc2a5b11639762d1bae6e6bdf4fe}{}\index{animate.\+h@{animate.\+h}!draw\+Line@{draw\+Line}}
+\index{draw\+Line@{draw\+Line}!animate.\+h@{animate.\+h}}
+\subsubsection[{draw\+Line}]{\setlength{\rightskip}{0pt plus 5cm}void draw\+Line (
+\begin{DoxyParamCaption}
+\item[{{\bf point}}]{a, }
+\item[{{\bf point}}]{b}
+\end{DoxyParamCaption}
+)}\label{animate_8h_a00e7dc2a5b11639762d1bae6e6bdf4fe}
+
+
+Draws a line segment between two given points. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Terminal point of segment. \\
+\hline
+{\em a} & Terminal point of segment. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+89 \{
+90     glBegin(GL\_LINES);
+91         glVertex3f( a.first, a.second, 0.0f );
+92         glVertex3f( b.first, b.second, 0.0f );
+93     glEnd();
+94 \}
+\end{DoxyCode}
+\hypertarget{animate_8h_aecd9aa84d3fe76fe2c5c209b5dd23f67}{}\index{animate.\+h@{animate.\+h}!draw\+Line\+Loop@{draw\+Line\+Loop}}
+\index{draw\+Line\+Loop@{draw\+Line\+Loop}!animate.\+h@{animate.\+h}}
+\subsubsection[{draw\+Line\+Loop}]{\setlength{\rightskip}{0pt plus 5cm}void draw\+Line\+Loop (
+\begin{DoxyParamCaption}
+\item[{{\bf pointset}}]{S}
+\end{DoxyParamCaption}
+)}\label{animate_8h_aecd9aa84d3fe76fe2c5c209b5dd23f67}
+
+
+Draws a closed loop of line segments. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em S} & Ordered pointset. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+101 \{
+102     glBegin(GL\_LINE\_LOOP);
+103         \textcolor{keywordflow}{for} ( \textcolor{keywordtype}{int} i = 0; i < \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S}.size(); i++ )
+104         \{
+105             glVertex3f( \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S}[i].first, \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S}[i].second, 0.0f );
+106         \}
+107     glEnd();
+108 \}
+\end{DoxyCode}
+\hypertarget{animate_8h_a164b8cbd9f06eaa4af7bd878087199e6}{}\index{animate.\+h@{animate.\+h}!draw\+Point@{draw\+Point}}
+\index{draw\+Point@{draw\+Point}!animate.\+h@{animate.\+h}}
+\subsubsection[{draw\+Point}]{\setlength{\rightskip}{0pt plus 5cm}void draw\+Point (
+\begin{DoxyParamCaption}
+\item[{{\bf point}}]{a}
+\end{DoxyParamCaption}
+)}\label{animate_8h_a164b8cbd9f06eaa4af7bd878087199e6}
+
+
+Draws a point on the G\+L window. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Coordinates of point to be drawn. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+64 \{
+65     glBegin(GL\_POINTS);
+66         glVertex3f( a.first, a.second, 0.0f );
+67     glEnd();
+68 \}
+\end{DoxyCode}
+\hypertarget{animate_8h_a8947dcec1b8d99e0df2f4bc686ba2a13}{}\index{animate.\+h@{animate.\+h}!draw\+Poly\+Line@{draw\+Poly\+Line}}
+\index{draw\+Poly\+Line@{draw\+Poly\+Line}!animate.\+h@{animate.\+h}}
+\subsubsection[{draw\+Poly\+Line}]{\setlength{\rightskip}{0pt plus 5cm}void draw\+Poly\+Line (
+\begin{DoxyParamCaption}
+\item[{{\bf pointset}}]{S}
+\end{DoxyParamCaption}
+)}\label{animate_8h_a8947dcec1b8d99e0df2f4bc686ba2a13}
+
+
+Draws a polyline. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em S} & Ordered pointset. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+115 \{
+116     glBegin(GL\_LINES);
+117         \textcolor{keywordflow}{for} ( \textcolor{keywordtype}{int} i = 1; i < \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S}.size(); i++ )
+118         \{
+119             glVertex3f( \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S}[i].first, \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S}[i].second, 0.0f );
+120             glVertex3f( \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S}[i-1].first, \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S}[i-1].second, 0.0f );
+121         \}
+122     glEnd();
+123 \}
+\end{DoxyCode}
+\hypertarget{animate_8h_a5d4b4187d67900909e9b0f8e7dcb0fe5}{}\index{animate.\+h@{animate.\+h}!draw\+Poly\+Line@{draw\+Poly\+Line}}
+\index{draw\+Poly\+Line@{draw\+Poly\+Line}!animate.\+h@{animate.\+h}}
+\subsubsection[{draw\+Poly\+Line}]{\setlength{\rightskip}{0pt plus 5cm}void draw\+Poly\+Line (
+\begin{DoxyParamCaption}
+\item[{{\bf pointstack}}]{S}
+\end{DoxyParamCaption}
+)}\label{animate_8h_a5d4b4187d67900909e9b0f8e7dcb0fe5}
+
+
+Converts pointstack to pointset and draws a polyline. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em S} & Ordered pointstack. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+130 \{
+131     \hyperlink{points_8h_a4bb5da68740936bfcd019aa4e0483431}{pointset} T;
+132     \textcolor{keywordflow}{while}( !\hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S}.empty() )
+133     \{
+134         T.addPoint( \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S}.top() );
+135         \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S}.pop();
+136     \}
+137 
+138     \hyperlink{animate_8h_a8947dcec1b8d99e0df2f4bc686ba2a13}{drawPolyLine}( T );
+139 \}
+\end{DoxyCode}
+\hypertarget{animate_8h_a3f1a3c82f580d30650114baa50f5658e}{}\index{animate.\+h@{animate.\+h}!plot\+Points@{plot\+Points}}
+\index{plot\+Points@{plot\+Points}!animate.\+h@{animate.\+h}}
+\subsubsection[{plot\+Points}]{\setlength{\rightskip}{0pt plus 5cm}void plot\+Points (
+\begin{DoxyParamCaption}
+\item[{{\bf pointset}}]{S}
+\end{DoxyParamCaption}
+)}\label{animate_8h_a3f1a3c82f580d30650114baa50f5658e}
+
+
+Plots the set of points on G\+L window. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em S} & Pointset to be drawn. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+75 \{
+76     glColor3f( 1.0, 1.0, 0.0 );
+77     \textcolor{keywordflow}{for} ( \textcolor{keywordtype}{int} i = 0; i < \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S}.size(); i++ )
+78     \{
+79         \hyperlink{animate_8h_a164b8cbd9f06eaa4af7bd878087199e6}{drawPoint}( \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S}[i] );
+80     \}
+81 \}
+\end{DoxyCode}
+\hypertarget{animate_8h_a5f7658bbd8ecc54af8d77b14f68dabd4}{}\index{animate.\+h@{animate.\+h}!process\+Normal\+Keys@{process\+Normal\+Keys}}
+\index{process\+Normal\+Keys@{process\+Normal\+Keys}!animate.\+h@{animate.\+h}}
+\subsubsection[{process\+Normal\+Keys}]{\setlength{\rightskip}{0pt plus 5cm}void process\+Normal\+Keys (
+\begin{DoxyParamCaption}
+\item[{unsigned char}]{key, }
+\item[{int}]{xx, }
+\item[{int}]{yy}
+\end{DoxyParamCaption}
+)}\label{animate_8h_a5f7658bbd8ecc54af8d77b14f68dabd4}
+
+
+Event handler for a key press. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & Key pressed. \\
+\hline
+{\em xx} & Standard G\+L variable. \\
+\hline
+{\em yy} & Standard G\+L variable. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+39 \{   
+40     \textcolor{keywordflow}{if}( key == \hyperlink{animate_8h_a4af1b6159e447ba72652bb7fcdfa726e}{ESC} )
+41         exit(0);
+42 \}
+\end{DoxyCode}
+
+
+\subsection{Variable Documentation}
+\hypertarget{animate_8h_a95a13658ced0801ed2e2d349bd150dc0}{}\index{animate.\+h@{animate.\+h}!animtog@{animtog}}
+\index{animtog@{animtog}!animate.\+h@{animate.\+h}}
+\subsubsection[{animtog}]{\setlength{\rightskip}{0pt plus 5cm}int animtog = 0}\label{animate_8h_a95a13658ced0801ed2e2d349bd150dc0}
+Animation toggle variable. 

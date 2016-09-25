@@ -1,0 +1,70 @@
+\hypertarget{driver_8cpp}{}\section{driver.\+cpp File Reference}
+\label{driver_8cpp}\index{driver.\+cpp@{driver.\+cpp}}
+
+
+Driver program that makes calls to Covex Hull A\+P\+I.  
+
+
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include $<$cstdio$>$}\\*
+{\ttfamily \#include $<$unistd.\+h$>$}\\*
+{\ttfamily \#include $<$bits/stdc++.\+h$>$}\\*
+{\ttfamily \#include $<$G\+L/glut.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}algorithm.\+h\char`\"{}}\\*
+Include dependency graph for driver.\+cpp\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{driver_8cpp_a91c42686f3245f22fb6b17ba5372d92c}{}void \hyperlink{driver_8cpp_a91c42686f3245f22fb6b17ba5372d92c}{render\+Scene} ()\label{driver_8cpp_a91c42686f3245f22fb6b17ba5372d92c}
+
+\begin{DoxyCompactList}\small\item\em Registered call back for G\+L display function. \end{DoxyCompactList}\item 
+int \hyperlink{driver_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Driver program that makes calls to Covex Hull A\+P\+I. 
+
+
+
+\subsection{Function Documentation}
+\hypertarget{driver_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{}\index{driver.\+cpp@{driver.\+cpp}!main@{main}}
+\index{main@{main}!driver.\+cpp@{driver.\+cpp}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{driver_8cpp_a0ddf1224851353fc92bfbff6f499fa97}
+
+
+Main function. 
+
+int \hyperlink{driver_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main( int argc, char$\ast$ argv\mbox{[}$\,$\mbox{]} )} 
+\begin{DoxyParams}{Parameters}
+{\em argc} & default commandline argument. \\
+\hline
+{\em argv} & default commandline arguments. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+44 \{
+45 
+46     cin >> \hyperlink{points_8h_a439227feff9d7f55384e8780cfc2eb82}{size} >> \hyperlink{animate_8h_a95a13658ced0801ed2e2d349bd150dc0}{animtog};
+47     \textcolor{keywordflow}{for} ( \textcolor{keywordtype}{int} i = 0; i < \hyperlink{points_8h_a439227feff9d7f55384e8780cfc2eb82}{size}; i++ )
+48     \{
+49         \textcolor{keywordtype}{double} x, y;
+50         cin >> x >> y;
+51         \hyperlink{points_8h_a96bcafe6a15c3e350f400c283f410192}{S}.addPoint( \hyperlink{points_8h_ace6dc239253765056895d916f3b2c1a3}{coord}(x, y) );
+52     \}
+53 
+54     glutInit(&argc, argv);
+55     \hyperlink{animate_8h_af1d8945a7d8f56dedd1c3dc2b7528217}{graphicsInitialize}();
+56     glutDisplayFunc( \hyperlink{driver_8cpp_a91c42686f3245f22fb6b17ba5372d92c}{renderScene} );
+57     glutMainLoop();
+58 
+59     \textcolor{keywordflow}{return} 0;
+60 \}
+\end{DoxyCode}

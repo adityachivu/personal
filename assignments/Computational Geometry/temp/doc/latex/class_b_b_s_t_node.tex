@@ -1,0 +1,100 @@
+\hypertarget{class_b_b_s_t_node}{}\section{B\+B\+S\+T\+Node Class Reference}
+\label{class_b_b_s_t_node}\index{B\+B\+S\+T\+Node@{B\+B\+S\+T\+Node}}
+
+
+{\ttfamily \#include $<$bbst.\+h$>$}
+
+
+
+Collaboration diagram for B\+B\+S\+T\+Node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=186pt]{class_b_b_s_t_node__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_b_b_s_t_node_a95c7972d8e48c1f77718a807c8253ecf}{B\+B\+S\+T\+Node} ()
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hyperlink{class_b_b_s_t_node_a28bcafd6fc932a53e2435b481783480c}{B\+B\+S\+T\+Node} (float n)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_b_b_s_t_node_a2347b11f5e1cdd08dc9047f5e16aa481}{height}
+\item 
+float \hyperlink{class_b_b_s_t_node_a701ac339cb2b6f633444e4e2be660cb2}{data}
+\item 
+\hyperlink{class_b_b_s_t_node}{B\+B\+S\+T\+Node} $\ast$ \hyperlink{class_b_b_s_t_node_a3ddadad752d9107c9e967b993d2666fe}{left}
+\item 
+\hyperlink{class_b_b_s_t_node}{B\+B\+S\+T\+Node} $\ast$ \hyperlink{class_b_b_s_t_node_ab8a78bee2fb0aa4e7e6d2feb8be28268}{right}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A class for defining node in a balanced Binary Search Tree 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_b_b_s_t_node_a95c7972d8e48c1f77718a807c8253ecf}{}\index{B\+B\+S\+T\+Node@{B\+B\+S\+T\+Node}!B\+B\+S\+T\+Node@{B\+B\+S\+T\+Node}}
+\index{B\+B\+S\+T\+Node@{B\+B\+S\+T\+Node}!B\+B\+S\+T\+Node@{B\+B\+S\+T\+Node}}
+\subsubsection[{B\+B\+S\+T\+Node}]{\setlength{\rightskip}{0pt plus 5cm}B\+B\+S\+T\+Node\+::\+B\+B\+S\+T\+Node (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_b_b_s_t_node_a95c7972d8e48c1f77718a807c8253ecf}
+
+
+Constructor. 
+
+To initialize an empty root node. 
+\begin{DoxyCode}
+137         \{
+138             \hyperlink{class_b_b_s_t_node_a3ddadad752d9107c9e967b993d2666fe}{left} = NULL;
+139             \hyperlink{class_b_b_s_t_node_ab8a78bee2fb0aa4e7e6d2feb8be28268}{right} = NULL;
+140             \hyperlink{class_b_b_s_t_node_a701ac339cb2b6f633444e4e2be660cb2}{data} = 0.0;
+141             \hyperlink{class_b_b_s_t_node_a2347b11f5e1cdd08dc9047f5e16aa481}{height} = 0;
+142         \}
+\end{DoxyCode}
+\hypertarget{class_b_b_s_t_node_a28bcafd6fc932a53e2435b481783480c}{}\index{B\+B\+S\+T\+Node@{B\+B\+S\+T\+Node}!B\+B\+S\+T\+Node@{B\+B\+S\+T\+Node}}
+\index{B\+B\+S\+T\+Node@{B\+B\+S\+T\+Node}!B\+B\+S\+T\+Node@{B\+B\+S\+T\+Node}}
+\subsubsection[{B\+B\+S\+T\+Node}]{\setlength{\rightskip}{0pt plus 5cm}B\+B\+S\+T\+Node\+::\+B\+B\+S\+T\+Node (
+\begin{DoxyParamCaption}
+\item[{float}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_b_b_s_t_node_a28bcafd6fc932a53e2435b481783480c}
+
+
+Constructor. 
+
+To initialize any node in the \hyperlink{class_b_b_s_t}{B\+B\+S\+T}. 
+\begin{DoxyCode}
+149             \{
+150             \hyperlink{class_b_b_s_t_node_a3ddadad752d9107c9e967b993d2666fe}{left} = NULL;
+151             \hyperlink{class_b_b_s_t_node_ab8a78bee2fb0aa4e7e6d2feb8be28268}{right} = NULL;
+152             \hyperlink{class_b_b_s_t_node_a701ac339cb2b6f633444e4e2be660cb2}{data} = n;
+153             \hyperlink{class_b_b_s_t_node_a2347b11f5e1cdd08dc9047f5e16aa481}{height} = 0;
+154         \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_b_b_s_t_node_a701ac339cb2b6f633444e4e2be660cb2}{}\index{B\+B\+S\+T\+Node@{B\+B\+S\+T\+Node}!data@{data}}
+\index{data@{data}!B\+B\+S\+T\+Node@{B\+B\+S\+T\+Node}}
+\subsubsection[{data}]{\setlength{\rightskip}{0pt plus 5cm}float B\+B\+S\+T\+Node\+::data}\label{class_b_b_s_t_node_a701ac339cb2b6f633444e4e2be660cb2}
+Value of the node \hypertarget{class_b_b_s_t_node_a2347b11f5e1cdd08dc9047f5e16aa481}{}\index{B\+B\+S\+T\+Node@{B\+B\+S\+T\+Node}!height@{height}}
+\index{height@{height}!B\+B\+S\+T\+Node@{B\+B\+S\+T\+Node}}
+\subsubsection[{height}]{\setlength{\rightskip}{0pt plus 5cm}int B\+B\+S\+T\+Node\+::height}\label{class_b_b_s_t_node_a2347b11f5e1cdd08dc9047f5e16aa481}
+Value of the height of a node \hypertarget{class_b_b_s_t_node_a3ddadad752d9107c9e967b993d2666fe}{}\index{B\+B\+S\+T\+Node@{B\+B\+S\+T\+Node}!left@{left}}
+\index{left@{left}!B\+B\+S\+T\+Node@{B\+B\+S\+T\+Node}}
+\subsubsection[{left}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\+B\+S\+T\+Node}$\ast$ B\+B\+S\+T\+Node\+::left}\label{class_b_b_s_t_node_a3ddadad752d9107c9e967b993d2666fe}
+Pointer to the left child of the node \hypertarget{class_b_b_s_t_node_ab8a78bee2fb0aa4e7e6d2feb8be28268}{}\index{B\+B\+S\+T\+Node@{B\+B\+S\+T\+Node}!right@{right}}
+\index{right@{right}!B\+B\+S\+T\+Node@{B\+B\+S\+T\+Node}}
+\subsubsection[{right}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\+B\+S\+T\+Node}$\ast$ B\+B\+S\+T\+Node\+::right}\label{class_b_b_s_t_node_ab8a78bee2fb0aa4e7e6d2feb8be28268}
+Pointer to the right child of the node 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/aditya/gitfolder/personal/assignments/\+Computational Geometry/temp/data/\hyperlink{bbst_8h}{bbst.\+h}\end{DoxyCompactItemize}
